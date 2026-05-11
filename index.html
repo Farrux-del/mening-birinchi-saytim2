@@ -162,5 +162,52 @@
         }
     }
 </script>
+    <div id="game-container" style="margin-top: 40px; padding: 20px; border: 2px dashed #00d2ff; border-radius: 15px; background: rgba(0, 210, 255, 0.05); transition: 0.5s;">
+    <h3 id="game-title" style="color: #00d2ff;">Farrux-Clicker ⚡</h3>
+    <p id="game-status" style="font-size: 14px;">Maqsad: 500 ta bosish!</p>
+    
+    <div id="score" style="font-size: 48px; font-weight: bold; color: #fff; text-shadow: 0 0 20px #00d2ff; margin-bottom: 20px;">0</div>
+    
+    <button id="click-btn" onclick="addClick()" style="width: 120px; height: 120px; border-radius: 50%; font-size: 24px; cursor: pointer; border: 4px solid #fff; background: #00d2ff; transition: 0.3s;">
+        BOS! 🚀
+    </button>
+    
+    <div id="reward-message" style="margin-top: 20px; font-size: 20px; color: #ffd700; font-weight: bold; display: none;">
+        🎊 TABRIKLAYMAN! SIZ AFSONAVIY GAMERSIZ! 🎊<br>
+        <small>500 ta bosish bajarildi!</small>
+    </div>
+</div>
+
+<script>
+    let count = 0;
+    function addClick() {
+        count++;
+        document.getElementById('score').innerText = count;
+        
+        let btn = document.getElementById('click-btn');
+        let container = document.getElementById('game-container');
+        let message = document.getElementById('reward-message');
+        let title = document.getElementById('game-title');
+
+        // 500 taga yetganda bo'ladigan o'zgarishlar
+        if (count >= 500) {
+            btn.style.background = "#ffd700"; // Oltin rang
+            btn.style.boxShadow = "0 0 50px #ffd700";
+            btn.innerText = "MAX 🏆";
+            
+            container.style.borderColor = "#ffd700";
+            container.style.background = "rgba(255, 215, 0, 0.1)";
+            
+            title.innerText = "AFSONAVIY CLICKER! 🔥";
+            title.style.color = "#ffd700";
+            
+            message.style.display = "block"; // Xabarni ko'rsatish
+        } else if (count % 10 === 0) {
+            // Har 10 ta bosganda qisqa effekt
+            document.getElementById('score').style.color = '#adff2f';
+            setTimeout(() => { document.getElementById('score').style.color = '#fff'; }, 100);
+        }
+    }
+</script>
 </body>
 </html>
