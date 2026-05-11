@@ -1,60 +1,86 @@
-<!-- index.html fayli -->
 <!DOCTYPE html>
-<html>
+<html lang="uz">
 <head>
-    <title>meni birinchi saytim</title>
-   <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farrux-Edits | Gaming & Video Production</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .main-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 50px auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        input {
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 12px 25px;
+            border-radius: 8px;
+            border: none;
+            background-color: #4ecca3;
+            color: #1a1a2e;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #45b393;
+            transform: scale(1.05);
+        }
+        #greeting {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #4ecca3;
+            font-weight: bold;
+        }
+    </style>
 </head>
 <body>
-    <h1>Salom, bu mening birinchi saytim!</h1>
-    <p>Men hozir HTML va CSS o'rganyapman.</p>
-<h1>Bu asosiy sarlavha (Masalan: Mening sevimli o'yinlarim)</h1>
-<h2>Bu kichikroq sarlavha (Masalan: Minecraft haqida)</h2>
-<h3>Undan ham kichikroq sarlavha</h3>
-<p>Minecraft — bu bloklardan qurilgan dunyo. Men bu o'yinda turli binolar qurishni yaxshi ko'raman.</p>
-<h3>Mening sevimli qurollarim (TF2):</h3>
-<ul>
-    <li>Sniper Rifle</li>
-    <li>Knife (Spy)</li>
-    <li>Stickybomb Launcher</li>
-</ul>
-<a href="https://www.google.com">Google-ga o'tish</a>
-<a href="https://store.steampowered.com/app/440/Team_Fortress_2/" target="_blank">
-    <button class="steam-link-btn">Steamda TF2 sahifasini ochish</button>
-</a>
-    <div style="text-align: center; margin-top: 50px;">
-    <h2>Mening ijodimni qo'llab-quvvatlang!</h2>
-    <p>Eng zo'r gaming editlarimni ko'rish va menga yordam berish uchun:</p>
-    
-    <a href="https://boosty.to/fr_edits" target="_blank" 
-       style="background-color: #ff4612; color: white; padding: 15px 25px; 
-              text-decoration: none; font-size: 20px; font-weight: bold; 
-              border-radius: 10px; display: inline-block; border: 2px solid #fff;">
-       🚀 Boosty sahifamga o'tish
-        <div style="text-align: center; margin-top: 30px; font-family: sans-serif;">
-    <hr style="border: 0; border-top: 1px solid #ccc; width: 50%; margin: 20px auto;">
-    
-    <p style="font-size: 18px; color: #f0f0f0;">
-        Men <strong>Twitchda</strong> juda ko'p stream qilib turaman!
-    </p>
 
-    <a href="https://www.twitch.tv/fr_edits32" target="_blank" 
-       style="background-color: #9146FF; color: white; padding: 12px 20px; 
-              text-decoration: none; font-size: 18px; font-weight: bold; 
-              border-radius: 8px; display: inline-block; transition: 0.3s;">
-       🎮 Twitchda kuzatib boring
-    </a>
-</div>
-        <section style="background-color: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; margin: 20px;">
-    <h3>🎮 Men o'ynaydigan o'yinlar:</h3>
-    <ul style="list-style: none; padding: 0;">
-        <li>⛏️ Minecraft (Java Edition)</li>
-        <li>🔫 Team Fortress 2 (Sniper/Spy)</li>
-        <li>⚔️ Call of Duty: MW3</li>
-        <li>🚜 World of Tanks</li>
-    </ul>
-</section>
-    </a>
-</div>
+    <div class="main-card">
+        <h1>Farruxbekning Dunyosiga Xush Kelibsiz! 🚀</h1>
+        <p>Ismingizni yozing va men siz bilan salomlashaman:</p>
+        
+        <input type="text" id="userName" placeholder="Ismingiz nima?">
+        <button onclick="sayHello()">Salomlashish</button>
+        
+        <div id="greeting"></div>
+        
+        <hr style="margin: 30px 0; border: 0; border-top: 1px solid rgba(255,255,255,0.1);">
+        
+        <p>Meni kuzatib boring:</p>
+        <a href="https://www.twitch.tv/farrux_del" target="_blank" style="color: #9146FF; text-decoration: none; margin: 10px; font-weight: bold;">🎮 Twitch</a>
+        <a href="https://boosty.to/fr_edits" target="_blank" style="color: #ff4612; text-decoration: none; margin: 10px; font-weight: bold;">🚀 Boosty</a>
+    </div>
+
+    <script>
+        function sayHello() {
+            let name = document.getElementById('userName').value;
+            let greetingDiv = document.getElementById('greeting');
+            
+            if (name.length > 0) {
+                greetingDiv.innerHTML = "Assalomu alaykum, " + name + "! Mening saytimga xush kelibsiz! 😊";
+            } else {
+                greetingDiv.innerHTML = "Iltimos, ismingizni yozing! 👇";
+            }
+        }
+    </script>
+
 </body>
 </html>
