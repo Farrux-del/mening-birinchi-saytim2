@@ -5,19 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Farruxbek | Pro Gamer & Editor</title>
     <style>
-        /* ASOSIY FON VA DIZAYN */
+        /* 1. ASOSIY FON - KOINOTDAGI MUSHUKCHA */
         body {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #0f0c29; /* Kosmik qora */
-            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            background-image: url('image_3.png'); /* GitHub'dagi rasm nomi bilan bir xil bo'lishi kerak */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
             font-family: 'Poppins', sans-serif;
             color: white;
             overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Sayt ustidagi qatlam (Rasm ustidan matnlar yaxshi ko'rinishi uchun) */
+        .overlay {
+            background: rgba(0, 0, 0, 0.4); /* Rasmni biroz qorong'ulashtiradi */
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
         }
 
         .container {
@@ -30,84 +41,58 @@
             text-align: center;
             max-width: 500px;
             width: 90%;
+            margin-bottom: 40px;
         }
 
-        h1 {
-            color: #00d2ff;
-            text-shadow: 0 0 10px #00d2ff;
-            margin-bottom: 20px;
-        }
-
-        /* INPUT MAYDONI */
+        h1 { color: #00d2ff; text-shadow: 0 0 10px #00d2ff; }
+        
         input {
-            width: 80%;
-            padding: 12px;
-            border: 2px solid #00d2ff;
-            background: transparent;
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
-            outline: none;
-            margin-bottom: 20px;
+            width: 80%; padding: 12px; border: 2px solid #00d2ff;
+            background: transparent; border-radius: 10px; color: white;
+            outline: none; margin-bottom: 20px;
         }
 
-        /* YONIB TURUVCHI TUGMA */
         button {
-            padding: 12px 30px;
-            background: #00d2ff;
-            border: none;
-            border-radius: 10px;
-            color: #0f0c29;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.4s;
-            box-shadow: 0 0 15px #00d2ff;
+            padding: 12px 30px; background: #00d2ff; border: none;
+            border-radius: 10px; color: #0f0c29; font-weight: bold;
+            cursor: pointer; transition: 0.4s; box-shadow: 0 0 15px #00d2ff;
         }
 
-        button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px #00d2ff;
-            background: #fff;
-        }
+        button:hover { transform: translateY(-5px); box-shadow: 0 0 30px #00d2ff; background: #fff; }
 
-        /* IJTIMOIY TARMOQLAR */
-        .links {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-around;
-        }
+        .links a { text-decoration: none; font-weight: bold; padding: 10px 20px; border-radius: 8px; margin: 0 10px; }
+        .twitch { background: #9146FF; color: white; }
+        .boosty { background: #ff4612; color: white; }
 
-        .links a {
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 8px;
+        /* REKLAMA KARTALARI */
+        .ad-card {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 210, 255, 0.3);
+            border-radius: 20px;
+            width: 300px;
+            padding: 20px;
+            color: white;
             transition: 0.3s;
+            margin: 10px;
+        }
+        .ad-card:hover { transform: translateY(-10px); border-color: #00d2ff; }
+        .ad-link {
+            display: block; margin-top: 15px; padding: 10px;
+            background: #00d2ff; color: white; text-decoration: none;
+            border-radius: 10px; font-weight: bold;
         }
 
-        .twitch {
-            background: #9146FF;
-            color: white;
-            box-shadow: 0 0 10px #9146FF;
-        }
-
-        .boosty {
-            background: #ff4612;
-            color: white;
-            box-shadow: 0 0 10px #ff4612;
-        }
-
-        #greeting {
-            margin-top: 25px;
-            font-size: 20px;
-            color: #adff2f;
-            min-height: 30px;
+        .tg-group-btn {
+            display: inline-flex; align-items: center; background: #24A1DE;
+            color: white; padding: 12px 30px; border-radius: 50px;
+            text-decoration: none; font-weight: bold; margin-top: 20px;
         }
     </style>
 </head>
 <body>
 
+<div class="overlay">
     <div class="container">
         <h1>Farrux-Edits ⚡</h1>
         <p>Mening shaxsiy portfoliomga xush kelibsiz!</p>
@@ -115,240 +100,15 @@
         <input type="text" id="nameInput" placeholder="Ismingizni kiriting...">
         <br>
         <button onclick="greet()">Salomlashish ✨</button>
+        <div id="greeting" style="margin-top: 20px; color: #adff2f;"></div>
 
-        <div id="greeting"></div>
-
-        <div class="links">
+        <div class="links" style="margin-top: 20px;">
             <a href="https://www.twitch.tv/fr_edits32" target="_blank" class="twitch">Twitch</a>
             <a href="https://boosty.to/fr_edits" target="_blank" class="boosty">Boosty</a>
         </div>
     </div>
 
-    <script>
-        function greet() {
-            const name = document.getElementById('nameInput').value;
-            const output = document.getElementById('greeting');
-            if(name) {
-                output.innerText = "Salom, " + name + "! Xush kelibsiz!";
-            } else {
-                output.innerText = "Iltimos, ismingizni yozing!";
-            }
-        }
-    </script>
-
-    <div style="margin-top: 40px; padding: 20px; border: 2px dashed #00d2ff; border-radius: 15px; background: rgba(0, 210, 255, 0.05);">
-    <h3 style="color: #00d2ff;">Farrux-Clicker ⚡</h3>
-    <p style="font-size: 14px;">Tugmani necha marta bosa olasiz?</p>
-    
-    <div id="score" style="font-size: 48px; font-weight: bold; color: #fff; text-shadow: 0 0 20px #00d2ff; margin-bottom: 20px;">0</div>
-    
-    <button onclick="addClick()" style="width: 120px; height: 120px; border-radius: 50%; font-size: 24px; cursor: pointer; border: 4px solid #fff;">
-        BOS! 🚀
-    </button>
-    
-    <p style="margin-top: 15px; font-size: 12px; color: #aaa;">(Eslatma: Sahifa yangilansa, ball nolga qaytadi)</p>
-</div>
-
-<script>
-    let count = 0;
-    function addClick() {
-        count++;
-        document.getElementById('score').innerText = count;
-        
-        // Har 10 ta bosganda rang o'zgarishi (effekt uchun)
-        if (count % 10 === 0) {
-            document.getElementById('score').style.color = '#adff2f';
-        } else {
-            document.getElementById('score').style.color = '#fff';
-        }
-    }
-</script>
-    
-    <div id="game-container" style="margin-top: 40px; padding: 20px; border: 2px dashed #00d2ff; border-radius: 15px; background: rgba(0, 210, 255, 0.05); transition: 0.5s;">
-    <h3 id="game-title" style="color: #00d2ff;">Farrux-Clicker ⚡</h3>
-    <p id="game-status" style="font-size: 14px;">Maqsad: 500 ta bosish!</p>
-    
-    <div id="score" style="font-size: 48px; font-weight: bold; color: #fff; text-shadow: 0 0 20px #00d2ff; margin-bottom: 20px;">0</div>
-    
-    <button id="click-btn" onclick="addClick()" style="width: 120px; height: 120px; border-radius: 50%; font-size: 24px; cursor: pointer; border: 4px solid #fff; background: #00d2ff; transition: 0.3s;">
-        BOS! 🚀
-    </button>
-    
-    <div id="reward-message" style="margin-top: 20px; font-size: 20px; color: #ffd700; font-weight: bold; display: none;">
-        🎊 TABRIKLAYMAN! SIZ AFSONAVIY GAMERSIZ! 🎊<br>
-        <small>500 ta bosish bajarildi!</small>
-    </div>
-</div>
-
-<script>
-    let count = 0;
-    function addClick() {
-        count++;
-        document.getElementById('score').innerText = count;
-        
-        let btn = document.getElementById('click-btn');
-        let container = document.getElementById('game-container');
-        let message = document.getElementById('reward-message');
-        let title = document.getElementById('game-title');
-
-        // 500 taga yetganda bo'ladigan o'zgarishlar
-        if (count >= 500) {
-            btn.style.background = "#ffd700"; // Oltin rang
-            btn.style.boxShadow = "0 0 50px #ffd700";
-            btn.innerText = "MAX 🏆";
-            
-            container.style.borderColor = "#ffd700";
-            container.style.background = "rgba(255, 215, 0, 0.1)";
-            
-            title.innerText = "AFSONAVIY CLICKER! 🔥";
-            title.style.color = "#ffd700";
-            
-            message.style.display = "block"; // Xabarni ko'rsatish
-        } else if (count % 10 === 0) {
-            // Har 10 ta bosganda qisqa effekt
-            document.getElementById('score').style.color = '#adff2f';
-            setTimeout(() => { document.getElementById('score').style.color = '#fff'; }, 100);
-        }
-    }
-</script>
-
-    <div style="margin-top: 30px; text-align: center;">
-    <p style="font-size: 14px; color: #b9bbbe;">Bizning jamoaga qo'shiling:</p>
-    <a href="https://discord.gg/mtruzrFZ" target="_blank" class="discord-btn">
-        <img src="https://assets-global.website-files.com/6257adef93867e3d0394e366/6361344714903310065796a6_discord%20icon.png" alt="Discord Logo">
-        Discord Serverga Qo'shilish
-    </a>
-</div>
-
-<style>
-    .discord-btn {
-        display: inline-flex;
-        align-items: center;
-        background-color: #5865F2; /* Discord rasmiy rangi */
-        color: white;
-        padding: 12px 25px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: bold;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        transition: 0.3s ease;
-        box-shadow: 0 4px 15px rgba(88, 101, 242, 0.4);
-    }
-
-    .discord-btn img {
-        width: 24px;
-        height: 24px;
-        margin-right: 12px;
-    }
-
-    .discord-btn:hover {
-        background-color: #4752c4;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(88, 101, 242, 0.6);
-    }
-
-    .discord-btn:active {
-        transform: translateY(0);
-    }
-</style>
-
-    <div style="margin-top: 20px; text-align: center;">
-    <p style="font-size: 14px; color: #aaa;">Savollaringiz bormi? Guruhimizga kiring:</p>
-    
-    <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="tg-group-btn">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 10px;">
-            <path d="M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM16.64 8.7L15.03 16.27C14.91 16.82 14.58 16.96 14.12 16.7L11.67 14.89L10.49 16.03C10.36 16.16 10.25 16.27 10 16.27L10.18 13.73L14.8 9.55C15 9.37 14.77 9.27 14.51 9.44L8.79 13.04L6.33 12.27C5.79 12.1 5.78 11.73 6.44 11.47L16.05 7.76C16.5 7.59 16.89 7.86 16.64 8.7Z" fill="white"/>
-        </svg>
-        Telegram Guruhga Qo'shilish
-    </a>
-</div>
-
-<style>
-    .tg-group-btn {
-        display: inline-flex;
-        align-items: center;
-        background: linear-gradient(135deg, #24A1DE, #229ED9);
-        color: white;
-        padding: 12px 30px;
-        border-radius: 50px; /* Yumaloq tugma */
-        text-decoration: none;
-        font-weight: bold;
-        transition: 0.3s;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .tg-group-btn:hover {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(34, 158, 217, 0.6);
-        background: linear-gradient(135deg, #229ED9, #24A1DE);
-    }
-
-    <section id="ads-section" style="margin-top: 100px; padding: 40px 20px; text-align: center;">
-    <h2 style="color: #fff; text-shadow: 0 0 10px #00d2ff; margin-bottom: 30px;">HAMKORLAR VA REKLAMA 📢</h2>
-    
-    <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
-        
-        <div class="ad-card">
-            <img src="telegram-qr.png" alt="Ad 1" style="width: 100%; border-radius: 10px;">
-            <h4>PRO PROGRAMMER</h4>
-            <p>Eng so'nggi kodlar va darslar shu yerda!</p>
-            <a href="https://t.me/FARRUX_PRO_PROGRAMMER" target="_blank" class="ad-link">OBUNA BO'LISH</a>
-        </div>
-
-        <div class="ad-card">
-            <div style="height: 150px; background: #5865F2; border-radius: 10px; display: flex; align-items: center; justify-content: center;">
-                <h3 style="color: white;">DISCORD COMMUNITY</h3>
-            </div>
-            <h4>GAMERLAR CHATI</h4>
-            <p>Biz bilan birga Minecraft va COD o'ynang!</p>
-            <a href="https://discord.gg/mtruzrFZ" target="_blank" class="ad-link" style="background: #5865F2;">QO'SHILISH</a>
-        </div>
-
-        <div class="ad-card">
-            <div style="height: 150px; background: rgba(255,255,255,0.1); border-radius: 10px; border: 2px dashed #aaa; display: flex; align-items: center; justify-content: center;">
-                <p style="color: #aaa;">REKLAMA JOYI</p>
-            </div>
-            <h4>SIZNING REKLAMANGIZ</h4>
-            <p>Saytimizda reklama bermoqchimisiz? Bizga yozing!</p>
-            <a href="https://t.me/+ua9nAGiKN3FjM2My" class="ad-link" style="background: #333;">BOG'LANISH</a>
-        </div>
-
-    </div>
-</section>
-
-<style>
-    .ad-card {
-        background: rgba(0, 0, 0, 0.6); /* Shaffof qora fon */
-        backdrop-filter: blur(5px);   /* Orqa fonni biroz xira qiladi (estetik) */
-        border: 1px solid rgba(0, 210, 255, 0.3);
-        border-radius: 20px;
-        width: 300px;
-        padding: 20px;
-        color: white;
-        transition: 0.3s;
-    }
-
-    .ad-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 30px rgba(0, 210, 255, 0.4);
-        border-color: #00d2ff;
-    }
-
-    .ad-link {
-        display: block;
-        margin-top: 15px;
-        padding: 10px;
-        background: #00d2ff;
-        color: white;
-        text-decoration: none;
-        border-radius: 10px;
-        font-weight: bold;
-        font-size: 14px;
-    }
-
-    .ad-link:hover {
-        opacity: 0.8;
-    }
-</style>
-</body>
-</html>
+    <div class="container" id="game-container">
+        <h3 id="game-title" style="color: #00d2ff;">Farrux-Clicker ⚡</h3>
+        <div id="score" style="font-size: 48px; font-weight: bold; margin: 10px 0;">0</div>
+        <button id="click-btn" onclick="addClick()" style="width: 100px; height:
