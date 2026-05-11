@@ -3,112 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farruxbek | Pro Gamer & Editor</title>
+    <title>Farruxbek | Pro Gamer</title>
     <style>
-        /* 1. ASOSIY FON - KOINOTDAGI MUSHUKCHA */
+        /* 1. ASOSIY FON */
         body {
             margin: 0;
             padding: 0;
-            background-image: url('image_3.png'); /* GitHub'dagi rasm nomi bilan bir xil bo'lishi kerak */
+            background-image: url('image_3.png'); /* GitHub'dagi rasm nomi bilan bir xil bo'lsin */
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             background-repeat: no-repeat;
             font-family: 'Poppins', sans-serif;
             color: white;
-            overflow-x: hidden;
             min-height: 100vh;
         }
 
-        /* Sayt ustidagi qatlam (Rasm ustidan matnlar yaxshi ko'rinishi uchun) */
-        .overlay {
-            background: rgba(0, 0, 0, 0.4); /* Rasmni biroz qorong'ulashtiradi */
+        /* Ustki qavat (hamma narsa ko'rinishi uchun) */
+        .main-overlay {
+            background: rgba(0, 0, 0, 0.5);
             min-height: 100vh;
-            width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding-top: 50px;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-            margin-bottom: 40px;
-        }
-
-        h1 { color: #00d2ff; text-shadow: 0 0 10px #00d2ff; }
-        
-        input {
-            width: 80%; padding: 12px; border: 2px solid #00d2ff;
-            background: transparent; border-radius: 10px; color: white;
-            outline: none; margin-bottom: 20px;
-        }
-
-        button {
-            padding: 12px 30px; background: #00d2ff; border: none;
-            border-radius: 10px; color: #0f0c29; font-weight: bold;
-            cursor: pointer; transition: 0.4s; box-shadow: 0 0 15px #00d2ff;
-        }
-
-        button:hover { transform: translateY(-5px); box-shadow: 0 0 30px #00d2ff; background: #fff; }
-
-        .links a { text-decoration: none; font-weight: bold; padding: 10px 20px; border-radius: 8px; margin: 0 10px; }
-        .twitch { background: #9146FF; color: white; }
-        .boosty { background: #ff4612; color: white; }
-
-        /* REKLAMA KARTALARI */
-        .ad-card {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(0, 210, 255, 0.3);
-            border-radius: 20px;
-            width: 300px;
             padding: 20px;
+        }
+
+        .section-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            margin-bottom: 30px;
+        }
+
+        /* CLICKER TUGMASI */
+        .click-button {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #00d2ff;
+            border: 5px solid #fff;
+            color: #000;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 0 20px #00d2ff;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        .click-button:hover { transform: scale(1.1); box-shadow: 0 0 40px #00d2ff; }
+
+        /* IJTIMOIY TUGMALAR */
+        .btn-link {
+            display: inline-block;
+            padding: 12px 25px;
+            margin: 10px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
             color: white;
             transition: 0.3s;
-            margin: 10px;
         }
-        .ad-card:hover { transform: translateY(-10px); border-color: #00d2ff; }
-        .ad-link {
-            display: block; margin-top: 15px; padding: 10px;
-            background: #00d2ff; color: white; text-decoration: none;
-            border-radius: 10px; font-weight: bold;
-        }
+        .discord-btn { background: #5865F2; box-shadow: 0 4px 15px #5865F2; }
+        .tg-btn { background: #24A1DE; box-shadow: 0 4px 15px #24A1DE; }
 
-        .tg-group-btn {
-            display: inline-flex; align-items: center; background: #24A1DE;
-            color: white; padding: 12px 30px; border-radius: 50px;
-            text-decoration: none; font-weight: bold; margin-top: 20px;
+        /* REKLAMA */
+        .ad-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .ad-card {
+            background: rgba(0, 0, 0, 0.8);
+            width: 280px;
+            padding: 15px;
+            border-radius: 15px;
+            border: 1px solid #00d2ff;
         }
     </style>
 </head>
 <body>
 
-<div class="overlay">
-    <div class="container">
-        <h1>Farrux-Edits ⚡</h1>
-        <p>Mening shaxsiy portfoliomga xush kelibsiz!</p>
-        
-        <input type="text" id="nameInput" placeholder="Ismingizni kiriting...">
-        <br>
-        <button onclick="greet()">Salomlashish ✨</button>
-        <div id="greeting" style="margin-top: 20px; color: #adff2f;"></div>
-
-        <div class="links" style="margin-top: 20px;">
-            <a href="https://www.twitch.tv/fr_edits32" target="_blank" class="twitch">Twitch</a>
-            <a href="https://boosty.to/fr_edits" target="_blank" class="boosty">Boosty</a>
+<div class="main-overlay">
+    
+    <div class="section-box">
+        <h1 style="color: #00d2ff;">Farrux-Edits ⚡</h1>
+        <p>Gamer va Video Editor portfoliosi</p>
+        <div style="display: flex; justify-content: center;">
+            <a href="https://www.twitch.tv/fr_edits32" target="_blank" style="color: #9146FF; margin: 0 10px;">Twitch</a>
+            <a href="https://boosty.to/fr_edits" target="_blank" style="color: #ff4612; margin: 0 10px;">Boosty</a>
         </div>
     </div>
 
-    <div class="container" id="game-container">
-        <h3 id="game-title" style="color: #00d2ff;">Farrux-Clicker ⚡</h3>
-        <div id="score" style="font-size: 48px; font-weight: bold; margin: 10px 0;">0</div>
-        <button id="click-btn" onclick="addClick()" style="width: 100px; height:
+    <div class="section-box">
+        <h3>Farrux-Clicker 🚀</h3>
+        <div id="score" style="font-size: 50px; font-weight: bold; color: #fff;">0</div>
+        <button class="click-button" onclick="addClick()">BOS! 🔥</button>
+        <div id="win-text" style="display:none; color: gold; margin-top: 10px;">🏆 AFSONAVIY GAMER!</div>
+    </div>
+
+    <div class="section-box">
+        <h3>BIZGA QO'SHILING</h3>
+        <a href="https://discord.gg/mtruzrFZ" target="_blank" class="btn-link discord-btn">Discord Server</a>
+        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="btn-link tg-btn">Telegram Guruh</a>
+    </div>
+
+    <h2 style="margin-bottom: 20px;">REKLAMALAR 📢</h2>
+    <div class="ad-grid">
+        <div class="ad-card">
+            <h4>Telegram Kanal</h4>
+            <p>@FARRUX_PRO_PROGRAMMER</p>
+            <a href="https://t.me/FARRUX_PRO_PROGRAMMER" target="_blank" style="color: #00d2ff;">Obuna bo'lish</a>
+        </div>
+        <div class="ad-card">
+            <h4>Hamkorlik</h4>
+            <p>Reklama berish uchun guruhga yozing.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    let clicks = 0;
+    function addClick() {
+        clicks++;
+        document.getElementById('score').innerText = clicks;
+        if(clicks >= 500) {
+            document.getElementById('win-text').style.display = 'block';
+            document.getElementById('score').style.color = 'gold';
+        }
+    }
+</script>
+
+</body>
+</html>
