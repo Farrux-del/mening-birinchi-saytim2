@@ -265,5 +265,43 @@
         }
     }
 </script>
+
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+<script defer src="https://pyscript.net/latest/pyscript.js"></script>
+
+    <div style="margin-top: 50px; padding: 20px; border: 2px solid #ff4612; border-radius: 15px; background: rgba(255, 70, 18, 0.1);">
+    <h3 style="color: #ff4612;">Python O'yini: Sonni Top! 🐍</h3>
+    <p>Men 1 dan 10 gacha son o'yladim. Topa olasizmi?</p>
+    
+    <input type="text" id="guess-input" placeholder="Son yozing..." style="width: 150px; border-color: #ff4612;">
+    <button py-click="check_guess()" style="background: #ff4612; color: white; padding: 10px 20px; border-radius: 8px; border: none; cursor: pointer;">
+        TEKSHIRISH
+    </button>
+    
+    <div id="py-output" style="margin-top: 20px; font-weight: bold; color: #fff;"></div>
+
+    <py-script>
+import random
+
+# Kompyuter son o'ylaydi
+secret_number = random.randint(1, 10)
+
+def check_guess():
+    # HTML-dan foydalanuvchi yozgan sonni olish
+    guess_input = Element("guess-input").element.value
+    output = Element("py-output")
+    
+    try:
+        guess = int(guess_input)
+        if guess == secret_number:
+            output.element.innerText = f"TABRIKLAYMAN! 🎉 Men {secret_number} sonini o'ylagan edim!"
+        elif guess < secret_number:
+            output.element.innerText = "Kattaroq son ayting... ⬆️"
+        else:
+            output.element.innerText = "Kichikroq son ayting... ⬇️"
+    except ValueError:
+        output.element.innerText = "Iltimos, faqat son yozing! 🔢"
+    </py-script>
+</div>
 </body>
 </html>
