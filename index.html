@@ -107,6 +107,47 @@
     </style>
 </head>
 <body>
+    <div style="margin-top: 50px; padding: 20px; border: 3px solid #4ecca3; border-radius: 15px; background: rgba(78, 204, 163, 0.1); text-align: center;">
+    <h2 style="color: #4ecca3;">🐍 Python: Sonni Top O'yini</h2>
+    
+    <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 10px; margin-bottom: 20px;">
+        <h4>Online O'ynash (Brauzerda)</h4>
+        <input type="text" id="guess-input" placeholder="1-10 oralig'ida..." style="padding: 10px; border-radius: 5px; border: none;">
+        <button py-click="check_guess()" style="padding: 10px 20px; background: #4ecca3; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Tekshirish</button>
+        <p id="py-output" style="margin-top: 10px; min-height: 20px;"></p>
+    </div>
+
+    <hr style="border: 0; border-top: 1px solid #4ecca3; margin: 20px 0;">
+
+    <div>
+        <h4>Offline O'ynash (Kompyuterga yuklash)</h4>
+        <p style="font-size: 13px;">Internetsiz o'ynash uchun .exe faylni yuklab oling:</p>
+        <a href="oyin.exe" download style="text-decoration: none;">
+            <button style="padding: 15px 30px; background: #ff4612; color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: bold; box-shadow: 0 4px 15px rgba(255, 70, 18, 0.4);">
+                📥 O'yinni Yuklab Olish (.exe)
+            </button>
+        </a>
+    </div>
+
+    <py-script>
+import random
+secret_number = random.randint(1, 10)
+
+def check_guess():
+    guess_input = Element("guess-input").element.value
+    output = Element("py-output")
+    try:
+        guess = int(guess_input)
+        if guess == secret_number:
+            output.element.innerText = "G'ALABA! 🎉 Sonni topdingiz!"
+        elif guess < secret_number:
+            output.element.innerText = "Kattaroq son ayting... ⬆️"
+        else:
+            output.element.innerText = "Kichikroq son ayting... ⬇️"
+    except:
+        output.element.innerText = "Faqat son yozing! 🔢"
+    </py-script>
+</div>
 
     <div class="container">
         <h1>Farrux-Edits ⚡</h1>
