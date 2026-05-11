@@ -209,5 +209,61 @@
         }
     }
 </script>
+    <div id="game-container" style="margin-top: 40px; padding: 20px; border: 2px dashed #00d2ff; border-radius: 15px; background: rgba(0, 210, 255, 0.05); transition: 0.5s;">
+    <h3 id="game-title" style="color: #00d2ff;">Farrux-Clicker ⚡</h3>
+    <p id="game-status" style="font-size: 16px; color: #adff2f; font-weight: bold;">
+        Agar 500 marta bossangiz, sizga maxfiy rasmni ko'rsataman! 🤫
+    </p>
+    
+    <div id="score" style="font-size: 48px; font-weight: bold; color: #fff; text-shadow: 0 0 20px #00d2ff; margin-bottom: 20px;">0</div>
+    
+    <button id="click-btn" onclick="addClick()" style="width: 120px; height: 120px; border-radius: 50%; font-size: 24px; cursor: pointer; border: 4px solid #fff; background: #00d2ff; transition: 0.2s; outline: none;">
+        BOS! 🚀
+    </button>
+    
+    <div id="secret-content" style="display: none; margin-top: 25px; animation: fadeIn 1s;">
+        <h2 style="color: #ffd700;">🎊 AFSONAVIY NATIJA! 🎊</h2>
+        <p>Mana sizga va'da qilingan maxfiy rasm:</p>
+        <img id="secret-img" src="https://via.placeholder.com/300x200/ffd700/000?text=SOVRIN+RASMI" alt="Maxfiy Rasm" style="width: 100%; max-width: 300px; border-radius: 15px; border: 5px solid #ffd700; box-shadow: 0 0 30px #ffd700;">
+    </div>
+</div>
+
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<script>
+    let count = 0;
+    function addClick() {
+        count++;
+        document.getElementById('score').innerText = count;
+        
+        let btn = document.getElementById('click-btn');
+        let container = document.getElementById('game-container');
+        let secretContent = document.getElementById('secret-content');
+        let statusText = document.getElementById('game-status');
+
+        if (count >= 500) {
+            // 500 taga yetganda hamma narsani yangilash
+            btn.style.display = "none"; // Tugmani yashirish
+            statusText.style.display = "none"; // Eski yozuvni yashirish
+            
+            container.style.borderColor = "#ffd700";
+            container.style.background = "rgba(255, 215, 0, 0.15)";
+            
+            secretContent.style.display = "block"; // Rasmni ko'rsatish
+            
+            // Ekran titrashi effekti
+            container.style.animation = "none"; 
+        } else if (count % 10 === 0) {
+            // Har 10 ta bosganda tugma biroz kattalashadi
+            btn.style.transform = "scale(1.1)";
+            setTimeout(() => { btn.style.transform = "scale(1)"; }, 100);
+        }
+    }
+</script>
 </body>
 </html>
