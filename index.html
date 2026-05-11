@@ -135,41 +135,5 @@
             }
         }
     </script>
-    <div id="chat-box" style="margin-top: 30px; border: 2px solid #00d2ff; padding: 15px; border-radius: 15px; background: rgba(0,0,0,0.5);">
-    <h3>Farrux-Bot 🤖</h3>
-    <div id="chat-display" style="height: 100px; overflow-y: auto; margin-bottom: 10px; border-bottom: 1px solid #00d2ff; text-align: left; padding: 5px;">
-        <p><i>Bot: Salom! Men bilan gaplashishingiz mumkin.</i></p>
-    </div>
-    <input type="text" id="chat-input" placeholder="Xabar yozing..." style="width: 70%; margin-bottom: 0;">
-    <button onclick="askBot()" style="padding: 10px; font-size: 14px;">Yuborish</button>
-</div>
-
-<script>
-    function askBot() {
-        let input = document.getElementById('chat-input').value.toLowerCase();
-        let display = document.getElementById('chat-display');
-        let botResponse = "";
-
-        if (input.includes("salom")) {
-            botResponse = "Salom, do'stim! Qalaysiz?";
-        } else if (input.includes("minecraft")) {
-            botResponse = "Minecraft - bu mening sevimli o'yinim! Sizchi?";
-        } else if (input.includes("nima qilyapsan")) {
-            botResponse = "Siz bilan gaplashib o'tiribman. Strimni ko'rdingizmi?";
-        } else if (input.includes("edit")) {
-            botResponse = "Men CapCut-da zo'r editlar qilishni bilaman!";
-        } else {
-            botResponse = "Hozircha buni bilmayman, lekin tez orada o'rganaman! 😊";
-        }
-
-        display.innerHTML += `<p><b>Siz:</b> ${input}</p>`;
-        display.innerHTML += `<p><b>Bot:</b> ${botResponse}</p>`;
-        
-        // Inputni tozalash
-        document.getElementById('chat-input').value = "";
-        // Avtomatik pastga tushirish
-        display.scrollTop = display.scrollHeight;
-    }
-</script>
 </body>
 </html>
