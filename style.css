@@ -64,3 +64,31 @@ a {
     box-shadow: 0 2px #b56118;
     transform: translateY(4px); /* Bosilganda pastga tushish effekti */
 }
+<style>
+    /* ORQA FON UCHUN TULIQ RASM */
+    body {
+        margin: 0;
+        padding: 0;
+        /* Rasm yo'li. Uni GitHub-ga yuklab, nomini 'cat-background.jpg' deb o'zgartir. */
+        background-image: url('cat-background.jpg');
+        
+        /* Rasmni ekran o'lchamiga moslashtirish */
+        background-size: cover;          /* Rasmni ekranga to'liq yoyish */
+        background-position: center;      /* Rasmni markazda ushlash */
+        background-attachment: fixed;    /* Sayt pastga tushganda fon qimirlamaydi */
+        background-repeat: no-repeat;    /* Rasm takrorlanmaydi */
+        
+        /* Saytdagi boshqa elementlar aniq ko'rinishi uchun fonga biroz qorong'ulik qo'shamiz */
+        filter: brightness(0.6); /* Rasmni 40% qorong'ulashtiradi, elementlar yaxshi ko'rinadi */
+        
+        /* Sayt balandligini to'liq qilish */
+        min-height: 100vh;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Asosiy konteyner elementlarini ko'rinib turishi uchun fondan ajratamiz */
+    .container, nav, section, #music-container, #game-container {
+        position: relative;
+        z-index: 2; /* Elementlarni fondan tepaga chiqaradi */
+    }
+</style>
