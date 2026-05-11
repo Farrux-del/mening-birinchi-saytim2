@@ -1,158 +1,36 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farruxbek | Pro Gamer & Editor</title>
-    <style>
-        /* ASOSIY FON VA DIZAYN */
-        body {
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background: #0f0c29; /* Kosmik qora */
-            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            overflow-x: hidden;
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
-        }
-
-        h1 {
-            color: #00d2ff;
-            text-shadow: 0 0 10px #00d2ff;
-            margin-bottom: 20px;
-        }
-
-        /* INPUT MAYDONI */
-        input {
-            width: 80%;
-            padding: 12px;
-            border: 2px solid #00d2ff;
-            background: transparent;
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
-            outline: none;
-            margin-bottom: 20px;
-        }
-
-        /* YONIB TURUVCHI TUGMA */
-        button {
-            padding: 12px 30px;
-            background: #00d2ff;
-            border: none;
-            border-radius: 10px;
-            color: #0f0c29;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.4s;
-            box-shadow: 0 0 15px #00d2ff;
-        }
-
-        button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px #00d2ff;
-            background: #fff;
-        }
-
-        /* IJTIMOIY TARMOQLAR */
-        .links {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-around;
-        }
-
-        .links a {
-            text-decoration: none;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .twitch {
-            background: #9146FF;
-            color: white;
-            box-shadow: 0 0 10px #9146FF;
-        }
-
-        .boosty {
-            background: #ff4612;
-            color: white;
-            box-shadow: 0 0 10px #ff4612;
-        }
-
-        #greeting {
-            margin-top: 25px;
-            font-size: 20px;
-            color: #adff2f;
-            min-height: 30px;
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container">
-        <h1>Farrux-Edits ⚡</h1>
-        <p>Mening shaxsiy portfoliomga xush kelibsiz!</p>
-        
-        <input type="text" id="nameInput" placeholder="Ismingizni kiriting...">
-        <br>
-        <button onclick="greet()">Salomlashish ✨</button>
-
-        <div id="greeting"></div>
-
-        <div class="links">
-            <a href="https://www.twitch.tv/fr_edits32" target="_blank" class="twitch">Twitch</a>
-            <a href="https://boosty.to/fr_edits" target="_blank" class="boosty">Boosty</a>
-        </div>
+<div id="chat-box" style="margin-top: 30px; border: 2px solid #00d2ff; padding: 15px; border-radius: 15px; background: rgba(0,0,0,0.5);">
+    <h3>Farrux-Bot 🤖</h3>
+    <div id="chat-display" style="height: 100px; overflow-y: auto; margin-bottom: 10px; border-bottom: 1px solid #00d2ff; text-align: left; padding: 5px;">
+        <p><i>Bot: Salom! Men bilan gaplashishingiz mumkin.</i></p>
     </div>
+    <input type="text" id="chat-input" placeholder="Xabar yozing..." style="width: 70%; margin-bottom: 0;">
+    <button onclick="askBot()" style="padding: 10px; font-size: 14px;">Yuborish</button>
+</div>
 
-    <script>
-        function greet() {
-            const name = document.getElementById('nameInput').value;
-            const output = document.getElementById('greeting');
-            if(name) {
-                output.innerText = "Salom, " + name + "! Xush kelibsiz!";
-            } else {
-                output.innerText = "Iltimos, ismingizni yozing!";
-            }
+<script>
+    function askBot() {
+        let input = document.getElementById('chat-input').value.toLowerCase();
+        let display = document.getElementById('chat-display');
+        let botResponse = "";
+
+        if (input.includes("salom")) {
+            botResponse = "Salom, do'stim! Qalaysiz?";
+        } else if (input.includes("minecraft")) {
+            botResponse = "Minecraft - bu mening sevimli o'yinim! Sizchi?";
+        } else if (input.includes("nima qilyapsan")) {
+            botResponse = "Siz bilan gaplashib o'tiribman. Strimni ko'rdingizmi?";
+        } else if (input.includes("edit")) {
+            botResponse = "Men CapCut-da zo'r editlar qilishni bilaman!";
+        } else {
+            botResponse = "Hozircha buni bilmayman, lekin tez orada o'rganaman! 😊";
         }
-    </script>
-    <style>
-    /* Telefonlar uchun maxsus moslashuv */
-    @media (max-width: 600px) {
-        .container {
-            padding: 20px; /* Joyni tejash uchun chetlarni kamaytiramiz */
-            width: 95%;     /* Telefon ekranini ko'proq qismini egallaydi */
-        }
-        h1 {
-            font-size: 24px; /* Yozuvni biroz kichraytiramiz */
-        }
-        button {
-            width: 100%;    /* Tugma telefon ekraniga to'liq yoyiladi */
-        }
-        .links {
-            flex-direction: column; /* Tugmalarni ustma-ust qo'yamiz */
-            gap: 10px;
-        }
+
+        display.innerHTML += `<p><b>Siz:</b> ${input}</p>`;
+        display.innerHTML += `<p><b>Bot:</b> ${botResponse}</p>`;
+        
+        // Inputni tozalash
+        document.getElementById('chat-input').value = "";
+        // Avtomatik pastga tushirish
+        display.scrollTop = display.scrollHeight;
     }
-</style>
-</body>
-</html>
+</script>
