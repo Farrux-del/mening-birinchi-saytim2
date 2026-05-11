@@ -119,7 +119,7 @@
         <div id="greeting"></div>
 
         <div class="links">
-            <a href="https://www.twitch.tv/farrux_del" target="_blank" class="twitch">Twitch</a>
+            <a href="https://www.twitch.tv/fr_edits32" target="_blank" class="twitch">Twitch</a>
             <a href="https://boosty.to/fr_edits" target="_blank" class="boosty">Boosty</a>
         </div>
     </div>
@@ -135,5 +135,24 @@
             }
         }
     </script>
+    <style>
+    /* Telefonlar uchun maxsus moslashuv */
+    @media (max-width: 600px) {
+        .container {
+            padding: 20px; /* Joyni tejash uchun chetlarni kamaytiramiz */
+            width: 95%;     /* Telefon ekranini ko'proq qismini egallaydi */
+        }
+        h1 {
+            font-size: 24px; /* Yozuvni biroz kichraytiramiz */
+        }
+        button {
+            width: 100%;    /* Tugma telefon ekraniga to'liq yoyiladi */
+        }
+        .links {
+            flex-direction: column; /* Tugmalarni ustma-ust qo'yamiz */
+            gap: 10px;
+        }
+    }
+</style>
 </body>
 </html>
