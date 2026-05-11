@@ -92,3 +92,15 @@ a {
         z-index: 2; /* Elementlarni fondan tepaga chiqaradi */
     }
 </style>
+<style>
+    body {
+        /* Fayl nomi GitHub-dagisi bilan BIR XIL bo'lishi shart! */
+        background-image: url('bg.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        margin: 0;
+        filter: brightness(0.7); /* Rasm ko'rinishi uchun */
+    }
+</style>
