@@ -158,3 +158,8 @@ a {
     transform: scale(0.92); /* Bosilganda kichrayadi */
     box-shadow: inset 5px 5px 10px rgba(0,0,0,0.5); /* Ichkariga botish effekti */
 }
+body {
+    background-attachment: fixed; /* Fon joyida qoladi, kontent ustidan sirpanib o'tadi */
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.4); /* Rasmni biroz qorong'ulashtirib, chuqurlik beradi */
+}
