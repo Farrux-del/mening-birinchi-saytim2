@@ -31,8 +31,8 @@ a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !importan
 /* AUDIO PLEER */
 .audio-card { background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; gap: 10px; }
 .audio-track { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 8px; border-radius: 8px; }
-.track-name { font-size: 13px; }
-audio { height: 30px; width: 140px; filter: invert(100%); }
+.track-name { font-size: 13px; margin-right: 10px; }
+audio { height: 35px; width: 160px; filter: invert(100%); }
 
 #score { font-size: 50px; font-weight: bold; margin: 10px 0; }
 
@@ -40,7 +40,7 @@ audio { height: 30px; width: 140px; filter: invert(100%); }
     width: 120px; height: 120px; border-radius: 50%;
     background: linear-gradient(145deg, #00d2ff, #0095b3);
     border: 4px solid #fff; color: white; font-weight: bold; font-size: 18px;
-    transition: 0.1s;
+    transition: 0.1s; border: none; outline: none;
 }
 
 .click-button:active { transform: scale(0.95); }
@@ -62,8 +62,8 @@ audio { height: 30px; width: 140px; filter: invert(100%); }
 }
 
 #creeper { 
-    width: 50px; 
-    height: 50px; 
+    width: 40px; 
+    height: 40px; 
     position: absolute; 
     border-radius: 5px; 
     display: none;
