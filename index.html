@@ -17,29 +17,11 @@
         <h1 style="color: #00d2ff; margin: 0;">Farrux-Edits ⚡</h1>
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
-    <!-- 1-FUNKSIYA: Kirishlar soni (Oddiy ko'rinishda) -->
-<div class="section-box">
-    <p id="visit-count" style="font-size: 14px;">Saytga kirishlar: 0</p>
-</div>
 
-<!-- 7-FUNKSIYA: Yutuqlar bo'limi -->
-<div class="section-box">
-    <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
-    <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
-    <div id="badge-2" class="skill-badge badge-locked">Pro (500 Click)</div>
-    <div id="badge-3" class="skill-badge badge-locked">Hacker (1000 Click)</div>
-</div>
-
-<!-- 2-FUNKSIYA: Izohlar bo'limi -->
-<div class="section-box">
-    <h3>MEHMONLAR KITOBI 💬</h3>
-    <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
-    <input type="text" id="userMsg" class="comment-input" placeholder="Xabar yozing...">
-    <button onclick="addComment()" class="group-btn" style="width: 100%; border: none;">Yuborish</button>
-    <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto;">
-        <!-- Izohlar shu yerga tushadi -->
+    <!-- 1-FUNKSIYA: Kirishlar soni -->
+    <div class="section-box">
+        <p id="visit-count" style="font-size: 14px; margin: 0;">Saytga kirishlar yuklanmoqda...</p>
     </div>
-</div>
 
     <!-- 2-FUNKSIYA: Musiqa pleyeri -->
     <div class="section-box">
@@ -50,6 +32,14 @@
         <button onclick="toggleMusic()" class="group-btn" style="background: linear-gradient(135deg, #ff4612, #ff8c00); border: none; cursor: pointer; width: 100%;">
             ▶️ Musiqani Yoqish/O'chirish
         </button>
+    </div>
+
+    <!-- 7-FUNKSIYA: Yutuqlar bo'limi -->
+    <div class="section-box">
+        <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
+        <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
+        <div id="badge-2" class="skill-badge badge-locked">Pro (500 Click)</div>
+        <div id="badge-3" class="skill-badge badge-locked">Hacker (1000 Click)</div>
     </div>
 
     <!-- 5-FUNKSIYA: IT Monitor Portfolio -->
@@ -70,17 +60,25 @@
         <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
     </div>
 
+    <!-- 2-FUNKSIYA: Izohlar bo'limi -->
+    <div class="section-box">
+        <h3>MEHMONLAR KITOBI 💬</h3>
+        <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
+        <input type="text" id="userMsg" class="comment-input" placeholder="Xabar yozing...">
+        <button onclick="addComment()" class="group-btn" style="width: 100%; border: none; cursor: pointer;">Yuborish</button>
+        <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+            <!-- Izohlar shu yerga tushadi -->
+        </div>
+    </div>
+
+    <!-- Ijtimoiy tarmoqlar -->
     <div class="section-box">
         <h3>CHAT & MUHOKAMA 💬</h3>
         <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn">👥 Telegram Guruh</a>
         <div style="margin-top: 15px;">
             <a href="https://discord.gg/mtruzrFZ" target="_blank" class="discord-btn">Discord Server</a>
         </div>
-    </div>
-
-    <div class="section-box">
-        <p>Boshqa platformalar:</p>
-        <div style="margin-top: 5px;">
+        <div style="margin-top: 15px;">
             <a href="https://www.twitch.tv/fr_edits32" target="_blank" style="color: #9146FF; text-decoration: none; font-weight: bold;">Twitch</a> | 
             <a href="https://boosty.to/fr_edits" target="_blank" style="color: #ff4612; text-decoration: none; font-weight: bold;">Boosty</a>
         </div>
@@ -96,9 +94,9 @@
 </div>
 
 <script>
+    // 1. Clicker va LocalStorage mantiqi
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
-    checkWin();
 
     function addClick() {
         clicks++;
@@ -110,6 +108,7 @@
         setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
         
         checkWin();
+        updateBadges(); // Har bosilganda yutuqlarni tekshirish
     }
 
     function checkWin() {
@@ -120,10 +119,9 @@
         }
     }
 
-    // Musiqani boshqarish funksiyasi
+    // 2. Musiqani boshqarish
     let isPlaying = false;
     const music = document.getElementById('bgMusic');
-
     function toggleMusic() {
         if (isPlaying) {
             music.pause();
@@ -132,43 +130,48 @@
         }
         isPlaying = !isPlaying;
     }
-    // 1-FUNKSIYA: Kirishlar sonini hisoblash (Local)
-let visits = localStorage.getItem('site_visits') || 0;
-visits++;
-localStorage.setItem('site_visits', visits);
-document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
 
-// 7-FUNKSIYA: Yutuqlarni tekshirish
-function updateBadges() {
-    if(clicks >= 100) document.getElementById('badge-1').classList.replace('badge-locked', 'badge-unlocked');
-    if(clicks >= 500) document.getElementById('badge-2').classList.replace('badge-locked', 'badge-unlocked');
-    if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
-}
+    // 3. Kirishlar soni
+    let visits = localStorage.getItem('site_visits') || 0;
+    visits++;
+    localStorage.setItem('site_visits', visits);
+    document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
 
-// Click funksiyasini ichida buni chaqirib qo'yamiz:
-// addClick() funksiyasining oxiriga updateBadges(); ni qo'shing.
-
-// 2-FUNKSIYA: Izohlar (Local storage-da saqlanadi)
-let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
-
-function displayComments() {
-    const list = document.getElementById('comments-list');
-    list.innerHTML = comments.map(c => `<p><b>${c.name}:</b> ${c.msg}</p>`).join('');
-}
-
-function addComment() {
-    const name = document.getElementById('userName').value;
-    const msg = document.getElementById('userMsg').value;
-    if(name && msg) {
-        comments.push({name, msg});
-        localStorage.setItem('site_comments', JSON.stringify(comments));
-        displayComments();
-        document.getElementById('userName').value = "";
-        document.getElementById('userMsg').value = "";
+    // 4. Yutuqlar (Badges)
+    function updateBadges() {
+        if(clicks >= 100) document.getElementById('badge-1').classList.replace('badge-locked', 'badge-unlocked');
+        if(clicks >= 500) document.getElementById('badge-2').classList.replace('badge-locked', 'badge-unlocked');
+        if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
     }
-}
-displayComments(); // Sahifa yuklanganda izohlarni chiqarish
-updateBadges();    // Sahifa yuklanganda yutuqlarni tekshirish
+
+    // 5. Izohlar tizimi
+    let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
+    function displayComments() {
+        const list = document.getElementById('comments-list');
+        if(comments.length === 0) {
+            list.innerHTML = "<p style='color: #888;'>Hozircha izohlar yo'q...</p>";
+        } else {
+            list.innerHTML = comments.map(c => `<p style='margin: 5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
+        }
+    }
+
+    function addComment() {
+        const name = document.getElementById('userName').value;
+        const msg = document.getElementById('userMsg').value;
+        if(name && msg) {
+            comments.push({name, msg});
+            localStorage.setItem('site_comments', JSON.stringify(comments));
+            displayComments();
+            document.getElementById('userName').value = "";
+            document.getElementById('userMsg').value = "";
+        } else {
+            alert("Iltimos, ism va xabarni to'ldiring!");
+        }
+    }
+
+    // Sahifa yuklanganda ishlashi kerak bo'lgan funksiyalar
+    displayComments();
+    updateBadges();
 </script>
 
 </body>
