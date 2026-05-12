@@ -1,14 +1,12 @@
 body {
     margin: 0;
     padding: 0;
-    /* Orqa fon rasmi */
     background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
                 url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fon qimirlamaydi */
+    background-attachment: fixed;
     background-repeat: no-repeat;
-    
     font-family: 'Poppins', sans-serif;
     color: white;
     min-height: 100vh;
@@ -17,10 +15,9 @@ body {
     align-items: center;
 }
 
-/* Shaffof bloklar uchun */
 .section-box {
     background: rgba(255, 255, 255, 0.1); 
-    backdrop-filter: blur(15px); /* Shishasimon effekt */
+    backdrop-filter: blur(15px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 25px;
     padding: 30px;
@@ -36,7 +33,6 @@ body {
     border: 1px solid #00d2ff;
 }
 
-/* Clicker tugmasi */
 .click-button {
     width: 140px;
     height: 140px;
@@ -48,8 +44,20 @@ body {
     transition: 0.1s;
     font-weight: bold;
     font-size: 18px;
+    color: white;
 }
 
 .click-button:active {
     transform: scale(0.9);
+}
+
+.group-btn {
+    display: block;
+    background: linear-gradient(135deg, #24A1DE, #229ED9);
+    color: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
 }
