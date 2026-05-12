@@ -1,183 +1,55 @@
-/* style.css fayli */
-
-body {
-    background-color: #f0f0f0; /* Orqa fon rangi */
-    font-family: sans-serif;   /* Shrift turi */
-    text-align: center;        /* Hamma narsani o'rtaga tekislaydi */
-}
-
-h1 {
-    color: #ff4500;            /* Sarlavha rangi olovrang */
-}
-
-p {
-    color: #333;               /* Matn rangi to'q kulrang */
-    font-size: 20px;           /* Matn o'lchami */
-}
-
-button {
-    background-color: #4CAF50; /* Tugma rangi yashil */
-    color: white;
-    padding: 10px 20px;        /* Tugma ichidagi bo'shliq */
-    border: none;
-    border-radius: 5px;        /* Burchaklarini yumaloq qiladi */
-    cursor: pointer;           /* Sichqoncha borganda qo'lcha chiqadi */
-}
-/* CSS-ga qo'shish uchun */
-ul {
-    list-style-type: none; /* Nuqtalarni olib tashlaydi */
-    padding: 0;
-}
-
-li {
-    background: white;
-    margin: 10px auto;
-    padding: 10px;
-    width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Soya beradi */
-}
-
-a {
-    text-decoration: none; /* Linkning tagidagi chiziqni oladi */
-    color: #007bff;
-    font-weight: bold;
-}
-.download-btn {
-    background-color: #f08121; /* TF2 uslubidagi olovrang */
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 5px #b56118; /* Tugma ostidagi soya (3D effekt) */
-    transition: 0.2s;
-}
-
-.download-btn:hover {
-    background-color: #ff9233; /* Sichqoncha ustiga kelganda rang o'zgarishi */
-}
-
-.download-btn:active {
-    box-shadow: 0 2px #b56118;
-    transform: translateY(4px); /* Bosilganda pastga tushish effekti */
-}
-<style>
-    /* ORQA FON UCHUN TULIQ RASM */
-    body {
-        margin: 0;
-        padding: 0;
-        /* Rasm yo'li. Uni GitHub-ga yuklab, nomini 'cat-background.jpg' deb o'zgartir. */
-        background-image: url('cat-background.jpg');
-        
-        /* Rasmni ekran o'lchamiga moslashtirish */
-        background-size: cover;          /* Rasmni ekranga to'liq yoyish */
-        background-position: center;      /* Rasmni markazda ushlash */
-        background-attachment: fixed;    /* Sayt pastga tushganda fon qimirlamaydi */
-        background-repeat: no-repeat;    /* Rasm takrorlanmaydi */
-        
-        /* Saytdagi boshqa elementlar aniq ko'rinishi uchun fonga biroz qorong'ulik qo'shamiz */
-        filter: brightness(0.6); /* Rasmni 40% qorong'ulashtiradi, elementlar yaxshi ko'rinadi */
-        
-        /* Sayt balandligini to'liq qilish */
-        min-height: 100vh;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    /* Asosiy konteyner elementlarini ko'rinib turishi uchun fondan ajratamiz */
-    .container, nav, section, #music-container, #game-container {
-        position: relative;
-        z-index: 2; /* Elementlarni fondan tepaga chiqaradi */
-    }
-</style>
-<style>
-    body {
-        /* Fayl nomi GitHub-dagisi bilan BIR XIL bo'lishi shart! */
-        background-image: url('bg.jpg'); 
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        margin: 0;
-        filter: brightness(0.7); /* Rasm ko'rinishi uchun */
-    }
-</style>
-.section-box {
-    background: rgba(255, 255, 255, 0.05); /* Juda shaffof */
-    backdrop-filter: blur(15px); /* Shishasimon xiralashtirish */
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 25px;
-    padding: 30px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
-                inset 0 0 15px rgba(255, 255, 255, 0.05); /* Ichki va tashqi soya hajm beradi */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-bottom: 30px;
-}
-
-/* Sichqoncha ustiga kelganda blok oldinga chiqadi */
-.section-box:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.3);
-    border: 1px solid rgba(0, 210, 255, 0.5);
-}
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.main-overlay > div {
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-/* Har bir blok ketma-ket chiqishi uchun */
-.section-box:nth-child(1) { animation-delay: 0.1s; }
-.section-box:nth-child(2) { animation-delay: 0.3s; }
-.section-box:nth-child(3) { animation-delay: 0.5s; }
-.click-button {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: linear-gradient(145deg, #00d2ff, #0095b3); /* Gradent hajm beradi */
-    border: none;
-    box-shadow: 10px 10px 20px #00000066, 
-                -5px -5px 15px rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition: 0.1s;
-    outline: none;
-}
-
-.click-button:active {
-    transform: scale(0.92); /* Bosilganda kichrayadi */
-    box-shadow: inset 5px 5px 10px rgba(0,0,0,0.5); /* Ichkariga botish effekti */
-}
-body {
-    background-attachment: fixed; /* Fon joyida qoladi, kontent ustidan sirpanib o'tadi */
-    background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.4); /* Rasmni biroz qorong'ulashtirib, chuqurlik beradi */
-}
 body {
     margin: 0;
     padding: 0;
-    /* Yangi fon rasmi */
-    background-image: url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg'); 
-    
-    /* Fonni qimirlamaydigan (fixed) qilish */
-    background-attachment: fixed; 
-    
-    /* Rasmni butun ekranga to'g'ri joylashtirish */
+    /* Orqa fon rasmi */
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed; /* Fon qimirlamaydi */
     background-repeat: no-repeat;
     
     font-family: 'Poppins', sans-serif;
     color: white;
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Shaffof bloklar uchun */
+.section-box {
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(15px); /* Shishasimon effekt */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+}
+
+.section-box:hover {
+    transform: translateY(-10px);
+    border: 1px solid #00d2ff;
+}
+
+/* Clicker tugmasi */
+.click-button {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #00d2ff, #0095b3);
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: 0.1s;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.click-button:active {
+    transform: scale(0.9);
 }
