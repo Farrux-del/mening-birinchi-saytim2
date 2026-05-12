@@ -163,9 +163,39 @@
             document.getElementById('win-text').style.display = 'block';
             document.getElementById('score').style.color = '#ffd700';
             document.getElementById('score').style.textShadow = '0 0 20px #ffd700';
+            let isPlaying = false;
+function toggleMusic() {
+    const music = document.getElementById('bgMusic');
+    if (isPlaying) {
+        music.pause();
+    } else {
+        music.play();
+    }
+    isPlaying = !isPlaying;
+}
         }
     }
 </script>
 
+    <!-- 2-FUNKSIYA: Musiqa pleyeri (Header qismiga qo'shish mumkin) -->
+<div class="section-box">
+    <h3>FON MUSIQASI 🎵</h3>
+    <audio id="bgMusic" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
+    </audio>
+    <button onclick="toggleMusic()" class="group-btn" style="background: #ff4612;">
+        ▶️ Musiqani Yoqish/O'chirish
+    </button>
+</div>
+
+<!-- 5-FUNKSIYA: IT Monitor Portfolio -->
+<div class="section-box">
+    <h3>IT SKILLS 💻</h3>
+    <div class="skill-badge">CapCut Editor</div>
+    <div class="skill-badge">Minecraft Java</div>
+    <div class="skill-badge">HTML/CSS Developer</div>
+    <div class="skill-badge">OBS Streamer</div>
+    <p style="font-size: 12px; margin-top: 10px;">5-sinf Informatika Monitori nomzodi</p>
+</div>
 </body>
 </html>
