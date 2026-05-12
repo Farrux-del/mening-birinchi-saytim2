@@ -8,6 +8,7 @@ html, body {
     background-size: cover; background-position: center; background-attachment: fixed;
 }
 
+/* Barcha bosiladigan elementlarga qilich kursorini qo'shish */
 a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !important; }
 
 .main-overlay { display: flex; flex-direction: column; align-items: center; padding: 20px; }
@@ -26,7 +27,10 @@ a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !importan
     width: 120px; height: 120px; border-radius: 50%;
     background: linear-gradient(145deg, #00d2ff, #0095b3);
     border: 4px solid #fff; color: white; font-weight: bold; font-size: 18px;
+    transition: 0.1s;
 }
+
+.click-button:active { transform: scale(0.95); }
 
 /* Darajalar & Progress Bar */
 .level-container { margin-bottom: 10px; }
@@ -34,19 +38,28 @@ a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !importan
 #progress-fill { height: 100%; background: #00ff88; transition: width 0.3s; }
 
 /* MINI GAME - Creeper Hunter */
-#game-canvas { width: 100%; height: 180px; background: rgba(0,0,0,0.5); border-radius: 10px; position: relative; overflow: hidden; }
+#game-canvas { 
+    width: 100%; 
+    height: 180px; 
+    background: rgba(0,0,0,0.5); 
+    border-radius: 10px; 
+    position: relative; 
+    overflow: hidden;
+    border: 1px solid #55ff55;
+}
 
 #creeper { 
-    width: 50px; /* Kriper yuzi aniq ko'rinishi uchun biroz kattalashtirdik */
+    width: 50px; 
     height: 50px; 
     position: absolute; 
     border-radius: 5px; 
     display: none;
-    /* YANGI: Sening rasming shu yerda ulandi */
-    background-image: url('big-creeper-face.png'); 
+    /* Internetdagi kafolatlangan rasm manzili */
+    background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d0/Creeper_Head.png'); 
     background-size: cover;
     background-position: center;
-    image-rendering: pixelated; /* Minecraft piksellari chiroyli chiqishi uchun */
+    image-rendering: pixelated; /* Minecraft uslubidagi tiniq piksellar */
+    z-index: 100;
 }
 
 /* Yutuqlar */
@@ -54,9 +67,9 @@ a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !importan
 .badge-locked { filter: grayscale(1); opacity: 0.3; }
 .badge-unlocked { border-color: #ffd700; color: #ffd700; box-shadow: 0 0 10px #ffd700; }
 
-.group-btn { display: block; padding: 12px; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; margin: 5px 0; }
-.discord-btn { background: #5865F2; padding: 10px; border-radius: 8px; text-decoration: none; color: white; }
-.comment-input { width: 90%; padding: 10px; border-radius: 8px; border: 1px solid #00d2ff; background: rgba(0,0,0,0.4); color: white; margin-bottom: 10px; }
+.group-btn { display: block; padding: 12px; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; margin: 5px 0; text-align: center; }
+.discord-btn { background: #5865F2; padding: 10px; border-radius: 8px; text-decoration: none; color: white; display: inline-block; }
+.comment-input { width: 90%; padding: 10px; border-radius: 8px; border: 1px solid #00d2ff; background: rgba(0,0,0,0.4); color: white; margin-bottom: 10px; outline: none; }
 
 @keyframes levelPulse { from { transform: scale(1); } to { transform: scale(1.1); } }
 .level-up-anim { animation: levelPulse 0.5s infinite alternate; }
