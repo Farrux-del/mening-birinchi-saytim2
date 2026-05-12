@@ -1,12 +1,11 @@
 body {
     margin: 0;
     padding: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
                 url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-    background-repeat: no-repeat;
     font-family: 'Poppins', sans-serif;
     color: white;
     min-height: 100vh;
@@ -25,12 +24,14 @@ body {
     max-width: 450px;
     text-align: center;
     margin-bottom: 25px;
-    transition: transform 0.3s ease;
+    transition: 0.4s;
 }
 
+/* 6-FUNKSIYA: Neon Glow effekti */
 .section-box:hover {
     transform: translateY(-10px);
     border: 1px solid #00d2ff;
+    box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
 }
 
 .click-button {
@@ -40,24 +41,35 @@ body {
     background: linear-gradient(145deg, #00d2ff, #0095b3);
     border: none;
     cursor: pointer;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    transition: 0.1s;
+    box-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+    transition: 0.2s;
     font-weight: bold;
-    font-size: 18px;
     color: white;
 }
 
-.click-button:active {
-    transform: scale(0.9);
+.click-button:hover {
+    box-shadow: 0 0 30px #00d2ff; /* Kuchli neon nuri */
+    transform: scale(1.05);
 }
 
-.group-btn {
-    display: block;
-    background: linear-gradient(135deg, #24A1DE, #229ED9);
-    color: white;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
+/* 5-FUNKSIYA: IT Skill belgilari */
+.skill-badge {
+    display: inline-block;
+    background: rgba(0, 210, 255, 0.2);
+    padding: 5px 15px;
+    border-radius: 15px;
+    margin: 5px;
+    font-size: 13px;
+    border: 1px solid #00d2ff;
+}
+
+/* Musiqa pleyer dizayni */
+.music-player {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }
