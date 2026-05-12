@@ -1,213 +1,87 @@
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <link rel="stylesheet" href="style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="Db90jMRMwiezoiE0eFqrElBA2YzJxnzZR0276UWgZZY" />
-    <meta name="keywords" content="Farrux, Farrux-Edits, gamer, video editor, Minecraft, Paxtaobod">
-    <meta name="author" content="Farrux-Edits">
-    <title>Farrux-Edits ⚡ | Pro Gamer & Programmer</title>
-</head>
-<body>
+html, body {
+    margin: 0; padding: 0; min-height: 100vh;
+    cursor: url('sword.png'), auto !important;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
+    background-size: cover; background-position: center; background-attachment: fixed;
+}
 
-<div class="main-overlay">
-    <!-- Sarlavha -->
-    <div class="section-box">
-        <h1 style="color: #00d2ff; margin: 0;">Farrux-Edits ⚡</h1>
-        <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
-    </div>
+a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !important; }
 
-    <!-- Kirishlar soni -->
-    <div class="section-box">
-        <p id="visit-count" style="font-size: 14px; margin: 0;">Siz saytga 0 marta kirdingiz</p>
-    </div>
+.main-overlay { display: flex; flex-direction: column; align-items: center; padding: 20px; }
 
-    <!-- Musiqa pleyeri -->
-    <div class="section-box">
-        <h3>FON MUSIQASI 🎵</h3>
-        <audio id="bgMusic" loop>
-            <source src="Missing-You(chosic.com).mp3" type="audio/mpeg">
-        </audio>
-        <button onclick="toggleMusic()" class="group-btn" style="background: linear-gradient(135deg, #ff4612, #ff8c00); border: none; cursor: pointer; width: 100%;">
-            ▶️ Musiqani Yoqish/O'chirish
-        </button>
-    </div>
+.section-box {
+    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px);
+    padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center; width: 90%; max-width: 450px; margin-bottom: 25px; transition: 0.4s;
+}
 
-    <!-- Edit Beats Pleer -->
-    <div class="section-box">
-        <h3>🎧 Edit Beats (CapCut Music)</h3>
-        <div class="audio-card">
-            <div class="audio-track">
-                <span class="track-name">🎬 Studio Thud</span>
-                <audio controls src="dragon-studio-thud-sound-effect-405470.mp3"></audio>
-            </div>
-            <div class="audio-track">
-                <span class="track-name">🦴 Bone Crack</span>
-                <audio controls src="vidssave.com Bone Crack Meme Sound Effect MP3 256KBPS.mp3"></audio>
-            </div>
-        </div>
-    </div>
+.section-box:hover { transform: translateY(-5px); border-color: #00d2ff; }
 
-    <!-- Yutuqlar bo'limi -->
-    <div class="section-box">
-        <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
-        <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
-        <div id="badge-2" class="skill-badge badge-locked">Pro (500 Click)</div>
-        <div id="badge-3" class="skill-badge badge-locked">Hacker (1000 Click)</div>
-    </div>
+/* RAQIBLAR JADVALI */
+.leaderboard-box { border: 1px solid #ffd700; }
+.leaderboard-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.leaderboard-table td { padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.rank-1 { color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
+.rank-2 { color: #c0c0c0; }
+.rank-3 { color: #cd7f32; }
 
-    <!-- Clicker & Level System -->
-    <div class="section-box">
-        <h3>Farrux-Clicker 🚀</h3>
-        <div class="level-container">
-            <p id="rank-name">Daraja: Yuklanmoqda...</p>
-            <div class="progress-bar">
-                <div id="progress-fill"></div>
-            </div>
-        </div>
-        <div id="score">0</div>
-        <button class="click-button" onclick="addClick()">BOS! 🔥</button>
-        <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
-    </div>
+/* AUDIO PLEER */
+.audio-card { background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; gap: 10px; }
+.audio-track { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 8px; border-radius: 8px; }
+.track-name { font-size: 13px; }
+audio { height: 30px; width: 140px; filter: invert(100%); }
 
-    <!-- RAQIBLAR JADVALI -->
-    <div class="section-box leaderboard-box">
-        <h3>🏆 Raqiblar Jadvali</h3>
-        <table class="leaderboard-table">
-            <tr class="rank-1">
-                <td>1. Farrux (Sardor)</td>
-                <td>1030 pts</td>
-            </tr>
-            <tr class="rank-2">
-                <td>2. Muhammadrizo</td>
-                <td>0 pts</td>
-            </tr>
-            <tr class="rank-3">
-                <td>3. Saidafzal</td>
-                <td>0 pts</td>
-            </tr>
-        </table>
-    </div>
+#score { font-size: 50px; font-weight: bold; margin: 10px 0; }
 
-    <!-- MINI GAME: CREEPER HUNTER -->
-    <div class="section-box" style="border: 2px solid #55ff55;">
-        <h3>MINI GAME: CREEPER HUNTER ⚔️</h3>
-        <p style="font-size: 12px; margin-bottom: 10px;">Kriperni portlashidan oldin tuting!</p>
-        <div id="game-canvas">
-            <div id="creeper" onclick="hitCreeper()"></div>
-        </div>
-        <p id="game-score" style="font-weight: bold; margin-top: 10px;">Ovlangan Kriperlar: 0</p>
-    </div>
+.click-button {
+    width: 120px; height: 120px; border-radius: 50%;
+    background: linear-gradient(145deg, #00d2ff, #0095b3);
+    border: 4px solid #fff; color: white; font-weight: bold; font-size: 18px;
+    transition: 0.1s;
+}
 
-    <!-- Izohlar bo'limi -->
-    <div class="section-box">
-        <h3>MEHMONLAR KITOBI 💬</h3>
-        <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
-        <input type="text" id="userMsg" class="comment-input" placeholder="Xabar yozing...">
-        <button onclick="addComment()" class="group-btn" style="width: 100%; border: none; cursor: pointer; background: #28a745;">Yuborish</button>
-        <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto;">
-        </div>
-    </div>
+.click-button:active { transform: scale(0.95); }
 
-    <!-- Ijtimoiy tarmoqlar -->
-    <div class="section-box">
-        <h3>CHAT & MUHOKAMA 💬</h3>
-        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn" style="background: #24A1DE;">👥 Telegram Guruh</a>
-        <div style="margin-top: 15px;">
-            <a href="https://discord.gg/mtruzrFZ" target="_blank" class="discord-btn">Discord Server</a>
-        </div>
-    </div>
-</div>
+/* Darajalar & Progress Bar */
+.level-container { margin-bottom: 10px; }
+.progress-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden; }
+#progress-fill { height: 100%; background: #00ff88; transition: width 0.3s; }
 
-<script>
-    // 1. Clicker & Levels
-    let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
-    document.getElementById('score').innerText = clicks;
+/* MINI GAME - Creeper Hunter */
+#game-canvas { 
+    width: 100%; 
+    height: 180px; 
+    background: rgba(0,0,0,0.5); 
+    border-radius: 10px; 
+    position: relative; 
+    overflow: hidden;
+    border: 1px solid #55ff55;
+}
 
-    function addClick() {
-        clicks++;
-        document.getElementById('score').innerText = clicks;
-        localStorage.setItem('farrux_clicks', clicks);
-        const scoreEl = document.getElementById('score');
-        scoreEl.style.transform = 'scale(1.2)';
-        setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
-        checkWin();
-        updateBadges();
-        updateLevel(clicks);
-    }
+#creeper { 
+    width: 50px; 
+    height: 50px; 
+    position: absolute; 
+    border-radius: 5px; 
+    display: none;
+    background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d0/Creeper_Head.png'); 
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated; 
+    z-index: 100;
+}
 
-    function updateLevel(score) {
-        let rank = ""; let progress = 0;
-        const rankText = document.getElementById('rank-name');
-        const progressFill = document.getElementById('progress-fill');
-        if (score < 100) { rank = "Yangi o'yinchi 🪵"; progress = (score / 100) * 100; rankText.style.color = "#ffd700"; }
-        else if (score < 500) { rank = "Edit Ustasi 🎬"; progress = ((score - 100) / 400) * 100; rankText.style.color = "#c0c0c0"; }
-        else if (score < 1000) { rank = "Professional Gamer 🎮"; progress = ((score - 500) / 500) * 100; rankText.style.color = "#00d2ff"; }
-        else { rank = "Real Madrid Fanati 👑"; progress = 100; rankText.style.color = "#ffffff"; rankText.classList.add('level-up-anim'); }
-        rankText.innerText = "Daraja: " + rank;
-        progressFill.style.width = progress + "%";
-    }
+/* Yutuqlar */
+.skill-badge { display: inline-block; padding: 5px 10px; border-radius: 15px; font-size: 12px; margin: 5px; border: 1px solid #00d2ff; }
+.badge-locked { filter: grayscale(1); opacity: 0.3; }
+.badge-unlocked { border-color: #ffd700; color: #ffd700; box-shadow: 0 0 10px #ffd700; }
 
-    function checkWin() {
-        if(clicks >= 500) {
-            document.getElementById('win-text').style.display = 'block';
-            document.getElementById('score').style.color = '#ffd700';
-        }
-    }
+.group-btn { display: block; padding: 12px; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; margin: 5px 0; text-align: center; }
+.discord-btn { background: #5865F2; padding: 10px; border-radius: 8px; text-decoration: none; color: white; display: inline-block; }
+.comment-input { width: 90%; padding: 10px; border-radius: 8px; border: 1px solid #00d2ff; background: rgba(0,0,0,0.4); color: white; margin-bottom: 10px; outline: none; }
 
-    function updateBadges() {
-        if(clicks >= 100) document.getElementById('badge-1').classList.replace('badge-locked', 'badge-unlocked');
-        if(clicks >= 500) document.getElementById('badge-2').classList.replace('badge-locked', 'badge-unlocked');
-        if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
-    }
-
-    // 2. Mini Game: Creeper Hunter
-    let gameScore = 0;
-    const creeper = document.getElementById('creeper');
-    const canvas = document.getElementById('game-canvas');
-
-    function moveCreeper() {
-        const maxX = canvas.clientWidth - 40;
-        const maxY = canvas.clientHeight - 40;
-        creeper.style.left = Math.floor(Math.random() * maxX) + 'px';
-        creeper.style.top = Math.floor(Math.random() * maxY) + 'px';
-        creeper.style.display = 'block';
-    }
-
-    function hitCreeper() {
-        gameScore++;
-        document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore;
-        creeper.style.display = 'none';
-        canvas.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
-        setTimeout(() => { canvas.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; }, 100);
-    }
-    setInterval(moveCreeper, 1500);
-
-    // 3. Other Functions
-    let isPlaying = false;
-    const music = document.getElementById('bgMusic');
-    function toggleMusic() { if (isPlaying) music.pause(); else music.play(); isPlaying = !isPlaying; }
-
-    let visits = localStorage.getItem('site_visits') || 0;
-    visits++;
-    localStorage.setItem('site_visits', visits);
-    document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
-
-    let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
-    function displayComments() {
-        const list = document.getElementById('comments-list');
-        list.innerHTML = comments.length === 0 ? "<p style='color:#888'>Hozircha izohlar yo'q...</p>" : 
-            comments.map(c => `<p style='background:rgba(255,255,255,0.05);padding:5px;border-radius:5px;margin:5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
-    }
-    function addComment() {
-        const name = document.getElementById('userName').value;
-        const msg = document.getElementById('userMsg').value;
-        if(name && msg) { comments.push({name, msg}); localStorage.setItem('site_comments', JSON.stringify(comments)); displayComments(); }
-    }
-
-    displayComments(); updateBadges(); updateLevel(clicks);
-</script>
-
-</body>
-</html>
+@keyframes levelPulse { from { transform: scale(1); } to { transform: scale(1.1); } }
+.level-up-anim { animation: levelPulse 0.5s infinite alternate; }
