@@ -18,12 +18,12 @@
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
 
-    <!-- 1-FUNKSIYA: Kirishlar soni -->
+    <!-- Kirishlar soni -->
     <div class="section-box">
         <p id="visit-count" style="font-size: 14px; margin: 0;">Siz saytga 0 marta kirdingiz</p>
     </div>
 
-    <!-- 2-FUNKSIYA: Musiqa pleyeri -->
+    <!-- Musiqa pleyeri -->
     <div class="section-box">
         <h3>FON MUSIQASI 🎵</h3>
         <audio id="bgMusic" loop>
@@ -34,7 +34,22 @@
         </button>
     </div>
 
-    <!-- 7-FUNKSIYA: Yutuqlar bo'limi -->
+    <!-- Edit Beats Pleer -->
+    <div class="section-box">
+        <h3>🎧 Edit Beats (CapCut Music)</h3>
+        <div class="audio-card">
+            <div class="audio-track">
+                <span class="track-name">🎬 Studio Thud</span>
+                <audio controls src="dragon-studio-thud-sound-effect-405470.mp3"></audio>
+            </div>
+            <div class="audio-track">
+                <span class="track-name">🦴 Bone Crack</span>
+                <audio controls src="vidssave.com Bone Crack Meme Sound Effect MP3 256KBPS.mp3"></audio>
+            </div>
+        </div>
+    </div>
+
+    <!-- Yutuqlar bo'limi -->
     <div class="section-box">
         <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
         <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
@@ -56,6 +71,25 @@
         <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
     </div>
 
+    <!-- RAQIBLAR JADVALI -->
+    <div class="section-box leaderboard-box">
+        <h3>🏆 Raqiblar Jadvali</h3>
+        <table class="leaderboard-table">
+            <tr class="rank-1">
+                <td>1. Farrux (Sardor)</td>
+                <td>1030 pts</td>
+            </tr>
+            <tr class="rank-2">
+                <td>2. Muhammadrizo</td>
+                <td>0 pts</td>
+            </tr>
+            <tr class="rank-3">
+                <td>3. Saidafzal</td>
+                <td>0 pts</td>
+            </tr>
+        </table>
+    </div>
+
     <!-- MINI GAME: CREEPER HUNTER -->
     <div class="section-box" style="border: 2px solid #55ff55;">
         <h3>MINI GAME: CREEPER HUNTER ⚔️</h3>
@@ -71,7 +105,7 @@
         <h3>MEHMONLAR KITOBI 💬</h3>
         <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
         <input type="text" id="userMsg" class="comment-input" placeholder="Xabar yozing...">
-        <button onclick="addComment()" class="group-btn" style="width: 100%; border: none; cursor: pointer;">Yuborish</button>
+        <button onclick="addComment()" class="group-btn" style="width: 100%; border: none; cursor: pointer; background: #28a745;">Yuborish</button>
         <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto;">
         </div>
     </div>
@@ -79,7 +113,7 @@
     <!-- Ijtimoiy tarmoqlar -->
     <div class="section-box">
         <h3>CHAT & MUHOKAMA 💬</h3>
-        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn">👥 Telegram Guruh</a>
+        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn" style="background: #24A1DE;">👥 Telegram Guruh</a>
         <div style="margin-top: 15px;">
             <a href="https://discord.gg/mtruzrFZ" target="_blank" class="discord-btn">Discord Server</a>
         </div>
@@ -150,7 +184,7 @@
     }
     setInterval(moveCreeper, 1500);
 
-    // 3. Other Functions (Music, Visits, Comments)
+    // 3. Other Functions
     let isPlaying = false;
     const music = document.getElementById('bgMusic');
     function toggleMusic() { if (isPlaying) music.pause(); else music.play(); isPlaying = !isPlaying; }
