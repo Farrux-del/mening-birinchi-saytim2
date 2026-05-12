@@ -104,3 +104,21 @@ a {
         filter: brightness(0.7); /* Rasm ko'rinishi uchun */
     }
 </style>
+.section-box {
+    background: rgba(255, 255, 255, 0.05); /* Juda shaffof */
+    backdrop-filter: blur(15px); /* Shishasimon xiralashtirish */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    padding: 30px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 
+                inset 0 0 15px rgba(255, 255, 255, 0.05); /* Ichki va tashqi soya hajm beradi */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+/* Sichqoncha ustiga kelganda blok oldinga chiqadi */
+.section-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 210, 255, 0.3);
+    border: 1px solid rgba(0, 210, 255, 0.5);
+}
