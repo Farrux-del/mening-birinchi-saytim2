@@ -151,5 +151,44 @@
     }
 </script>
 
+    <!-- JavaScript qismini mana bu bilan almashtirib ko'r -->
+<script>
+    // Ballarni xotiradan yuklab olish (agar oldin o'ynagan bo'lsa)
+    let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
+    
+    // Sahifa yuklanganda ballni ko'rsatish
+    document.getElementById('score').innerText = clicks;
+    checkWin();
+
+    function addClick() {
+        clicks++;
+        document.getElementById('score').innerText = clicks;
+        
+        // Ballarni saqlash
+        localStorage.setItem('farrux_clicks', clicks);
+        
+        // Effekt berish
+        const scoreEl = document.getElementById('score');
+        scoreEl.style.transform = 'scale(1.2)';
+        setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
+        
+        checkWin();
+    }
+
+    function checkWin() {
+        if(clicks >= 500) {
+            document.getElementById('win-text').style.display = 'block';
+            document.getElementById('score').style.color = '#ffd700';
+            document.getElementById('score').style.textShadow = '0 0 20px #ffd700';
+        }
+    }
+</script>
+
+<!-- Style qismiga mana bu kichik effektni qo'shib qo'y -->
+<style>
+    #score {
+        transition: transform 0.1s ease;
+    }
+</style>
 </body>
 </html>
