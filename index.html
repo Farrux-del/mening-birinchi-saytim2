@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="Db90jMRMwiezoiE0eFqrElBA2YzJxnzZR0276UWgZZY" />
-    <meta name="keywords" content="Farrux, Farrux-Edits, pro programmer, gamer, video editor, Minecraft Uzbekistan, Paxtaobod gamer">
+    <meta name="keywords" content="Farrux, Farrux-Edits, gamer, video editor, Minecraft, Paxtaobod">
     <meta name="author" content="Farrux-Edits">
     <title>Farrux-Edits ⚡ | Pro Gamer & Programmer</title>
 </head>
@@ -20,7 +20,7 @@
 
     <!-- 1-FUNKSIYA: Kirishlar soni -->
     <div class="section-box">
-        <p id="visit-count" style="font-size: 14px; margin: 0;">Saytga kirishlar yuklanmoqda...</p>
+        <p id="visit-count" style="font-size: 14px; margin: 0;">Siz saytga 0 marta kirdingiz</p>
     </div>
 
     <!-- 2-FUNKSIYA: Musiqa pleyeri -->
@@ -45,26 +45,34 @@
     <!-- Clicker & Level System -->
     <div class="section-box">
         <h3>Farrux-Clicker 🚀</h3>
-        
         <div class="level-container">
             <p id="rank-name">Daraja: Yuklanmoqda...</p>
             <div class="progress-bar">
                 <div id="progress-fill"></div>
             </div>
         </div>
-
         <div id="score">0</div>
         <button class="click-button" onclick="addClick()">BOS! 🔥</button>
         <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
     </div>
 
-    <!-- 2-FUNKSIYA: Izohlar bo'limi -->
+    <!-- MINI GAME: CREEPER HUNTER -->
+    <div class="section-box" style="border: 2px solid #55ff55;">
+        <h3>MINI GAME: CREEPER HUNTER ⚔️</h3>
+        <p style="font-size: 12px; margin-bottom: 10px;">Kriperni portlashidan oldin tuting!</p>
+        <div id="game-canvas">
+            <div id="creeper" onclick="hitCreeper()"></div>
+        </div>
+        <p id="game-score" style="font-weight: bold; margin-top: 10px;">Ovlangan Kriperlar: 0</p>
+    </div>
+
+    <!-- Izohlar bo'limi -->
     <div class="section-box">
         <h3>MEHMONLAR KITOBI 💬</h3>
         <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
         <input type="text" id="userMsg" class="comment-input" placeholder="Xabar yozing...">
         <button onclick="addComment()" class="group-btn" style="width: 100%; border: none; cursor: pointer;">Yuborish</button>
-        <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 10px;">
+        <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto;">
         </div>
     </div>
 
@@ -79,6 +87,7 @@
 </div>
 
 <script>
+    // 1. Clicker & Levels
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
 
@@ -86,63 +95,32 @@
         clicks++;
         document.getElementById('score').innerText = clicks;
         localStorage.setItem('farrux_clicks', clicks);
-        
         const scoreEl = document.getElementById('score');
         scoreEl.style.transform = 'scale(1.2)';
         setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
-        
         checkWin();
-        updateBadges(); 
+        updateBadges();
         updateLevel(clicks);
+    }
+
+    function updateLevel(score) {
+        let rank = ""; let progress = 0;
+        const rankText = document.getElementById('rank-name');
+        const progressFill = document.getElementById('progress-fill');
+        if (score < 100) { rank = "Yangi o'yinchi 🪵"; progress = (score / 100) * 100; rankText.style.color = "#ffd700"; }
+        else if (score < 500) { rank = "Edit Ustasi 🎬"; progress = ((score - 100) / 400) * 100; rankText.style.color = "#c0c0c0"; }
+        else if (score < 1000) { rank = "Professional Gamer 🎮"; progress = ((score - 500) / 500) * 100; rankText.style.color = "#00d2ff"; }
+        else { rank = "Real Madrid Fanati 👑"; progress = 100; rankText.style.color = "#ffffff"; rankText.classList.add('level-up-anim'); }
+        rankText.innerText = "Daraja: " + rank;
+        progressFill.style.width = progress + "%";
     }
 
     function checkWin() {
         if(clicks >= 500) {
             document.getElementById('win-text').style.display = 'block';
             document.getElementById('score').style.color = '#ffd700';
-            document.getElementById('score').style.textShadow = '0 0 20px #ffd700';
         }
     }
-
-    function updateLevel(score) {
-        let rank = "";
-        let progress = 0;
-        const rankText = document.getElementById('rank-name');
-        const progressFill = document.getElementById('progress-fill');
-
-        if (score < 100) {
-            rank = "Daraja: Yangi o'yinchi 🪵";
-            progress = (score / 100) * 100;
-            rankText.style.color = "#ffd700";
-        } else if (score < 500) {
-            rank = "Daraja: Edit Ustasi 🎬";
-            progress = ((score - 100) / 400) * 100;
-            rankText.style.color = "#c0c0c0";
-        } else if (score < 1000) {
-            rank = "Daraja: Professional Gamer 🎮";
-            progress = ((score - 500) / 500) * 100;
-            rankText.style.color = "#00d2ff";
-        } else {
-            rank = "Daraja: Real Madrid Fanati 👑";
-            progress = 100;
-            rankText.style.color = "#ffffff";
-            rankText.classList.add('level-up-anim');
-        }
-        rankText.innerText = rank;
-        progressFill.style.width = progress + "%";
-    }
-
-    let isPlaying = false;
-    const music = document.getElementById('bgMusic');
-    function toggleMusic() {
-        if (isPlaying) { music.pause(); } else { music.play(); }
-        isPlaying = !isPlaying;
-    }
-
-    let visits = localStorage.getItem('site_visits') || 0;
-    visits++;
-    localStorage.setItem('site_visits', visits);
-    document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
 
     function updateBadges() {
         if(clicks >= 100) document.getElementById('badge-1').classList.replace('badge-locked', 'badge-unlocked');
@@ -150,28 +128,52 @@
         if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
     }
 
+    // 2. Mini Game: Creeper Hunter
+    let gameScore = 0;
+    const creeper = document.getElementById('creeper');
+    const canvas = document.getElementById('game-canvas');
+
+    function moveCreeper() {
+        const maxX = canvas.clientWidth - 40;
+        const maxY = canvas.clientHeight - 40;
+        creeper.style.left = Math.floor(Math.random() * maxX) + 'px';
+        creeper.style.top = Math.floor(Math.random() * maxY) + 'px';
+        creeper.style.display = 'block';
+    }
+
+    function hitCreeper() {
+        gameScore++;
+        document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore;
+        creeper.style.display = 'none';
+        canvas.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
+        setTimeout(() => { canvas.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; }, 100);
+    }
+    setInterval(moveCreeper, 1500);
+
+    // 3. Other Functions (Music, Visits, Comments)
+    let isPlaying = false;
+    const music = document.getElementById('bgMusic');
+    function toggleMusic() { if (isPlaying) music.pause(); else music.play(); isPlaying = !isPlaying; }
+
+    let visits = localStorage.getItem('site_visits') || 0;
+    visits++;
+    localStorage.setItem('site_visits', visits);
+    document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
+
     let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
     function displayComments() {
         const list = document.getElementById('comments-list');
-        list.innerHTML = comments.length === 0 ? "<p style='color: #888;'>Hozircha izohlar yo'q...</p>" : 
-            comments.map(c => `<p style='margin: 5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
+        list.innerHTML = comments.length === 0 ? "<p style='color:#888'>Hozircha izohlar yo'q...</p>" : 
+            comments.map(c => `<p style='background:rgba(255,255,255,0.05);padding:5px;border-radius:5px;margin:5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
     }
-
     function addComment() {
         const name = document.getElementById('userName').value;
         const msg = document.getElementById('userMsg').value;
-        if(name && msg) {
-            comments.push({name, msg});
-            localStorage.setItem('site_comments', JSON.stringify(comments));
-            displayComments();
-            document.getElementById('userName').value = "";
-            document.getElementById('userMsg').value = "";
-        }
+        if(name && msg) { comments.push({name, msg}); localStorage.setItem('site_comments', JSON.stringify(comments)); displayComments(); }
     }
 
-    displayComments();
-    updateBadges();
-    updateLevel(clicks);
+    displayComments(); updateBadges(); updateLevel(clicks);
 </script>
+
 </body>
 </html>
