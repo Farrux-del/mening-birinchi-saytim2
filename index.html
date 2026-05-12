@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-    <meta name="google-site-verification" content="Db90jMRMwiezoiE0eFqrElBA2YzJxnzZR0276UWgZZY" />
-<meta name="keywords" content="Farrux, Farrux-Edits, pro programmer, gamer, video editor, Minecraft Uzbekistan, Paxtaobod gamer">
-<meta name="author" content="Farrux-Edits">
-
-<title>Farrux-Edits ⚡ | Pro Gamer & Programmer</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Farruxbek | Gamer Portal</title>
+    <meta name="google-site-verification" content="Db90jMRMwiezoiE0eFqrElBA2YzJxnzZR0276UWgZZY" />
+    <meta name="keywords" content="Farrux, Farrux-Edits, pro programmer, gamer, video editor, Minecraft Uzbekistan, Paxtaobod gamer">
+    <meta name="author" content="Farrux-Edits">
+    <title>Farrux-Edits ⚡ | Pro Gamer & Programmer</title>
+    
     <style>
         body {
             margin: 0;
             padding: 0;
-            background-image: url('image_3.png'); /* Rasming nomi GitHub'da qanday bo'lsa shuni yoz */
+            /* Orqa fon rasmi - o'sha YouTube rasmi */
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+                        url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -24,7 +25,6 @@
         }
 
         .main-overlay {
-            background: rgba(0, 0, 0, 0.6);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -42,25 +42,35 @@
             width: 90%;
             max-width: 450px;
             margin-bottom: 25px;
+            transition: transform 0.3s ease;
         }
 
-        /* CLICKER TUGMASI */
+        .section-box:hover { transform: translateY(-5px); border-color: #00d2ff; }
+
+        #score {
+            font-size: 45px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            transition: transform 0.1s ease;
+        }
+
         .click-button {
-            width: 120px;
-            height: 120px;
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            background: #00d2ff;
+            background: linear-gradient(145deg, #00d2ff, #0095b3);
             border: 4px solid #fff;
-            color: #000;
+            color: #fff;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 0 20px #00d2ff;
-            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
+            transition: 0.2s;
         }
-        .click-button:hover { transform: scale(1.1); box-shadow: 0 0 40px #00d2ff; }
 
-        /* TELEGRAM GURUH TUGMASI (ASOSIY) */
+        .click-button:hover { transform: scale(1.05); }
+        .click-button:active { transform: scale(0.9); }
+
         .group-btn {
             display: block;
             background: linear-gradient(135deg, #24A1DE, #229ED9);
@@ -70,11 +80,8 @@
             border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 18px;
             box-shadow: 0 5px 15px rgba(36, 161, 222, 0.4);
-            transition: 0.3s;
         }
-        .group-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(36, 161, 222, 0.6); }
 
         .discord-btn {
             display: inline-block;
@@ -83,91 +90,66 @@
             padding: 10px 20px;
             border-radius: 10px;
             text-decoration: none;
-            font-size: 14px;
             margin-top: 10px;
         }
 
-        /* REKLAMA */
         .ad-card {
             background: rgba(0, 0, 0, 0.8);
             padding: 15px;
             border-radius: 15px;
             border: 1px solid #00d2ff;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
 
 <div class="main-overlay">
-    
     <div class="section-box">
-        <h1 style="color: #00d2ff; margin-bottom: 5px;">Farrux-Edits ⚡</h1>
+        <h1 style="color: #00d2ff; margin: 0;">Farrux-Edits ⚡</h1>
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
 
     <div class="section-box">
-        <h3 style="margin-bottom: 10px;">CHAT & MUHOKAMA 💬</h3>
-        <p style="font-size: 13px; color: #eee; margin-bottom: 15px;">Savollaringizni guruhda bering, hamma bilan birga gaplashamiz!</p>
-        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn">
-            👥 Telegram Guruhimizga Kirish
-        </a>
+        <h3>CHAT & MUHOKAMA 💬</h3>
+        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn">👥 Telegram Guruh</a>
     </div>
 
     <div class="section-box">
         <h3>Farrux-Clicker 🚀</h3>
-        <div id="score" style="font-size: 45px; font-weight: bold; margin-bottom: 10px;">0</div>
+        <div id="score">0</div>
         <button class="click-button" onclick="addClick()">BOS! 🔥</button>
         <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
     </div>
 
     <div class="section-box">
-        <p style="font-size: 14px; margin-bottom: 10px;">Boshqa platformalar:</p>
+        <p>Boshqa platformalar:</p>
         <a href="https://discord.gg/mtruzrFZ" target="_blank" class="discord-btn">Discord Server</a>
         <div style="margin-top: 15px;">
-            <a href="https://www.twitch.tv/fr_edits32" target="_blank" style="color: #9146FF; font-size: 14px; text-decoration: none;">Twitch</a> | 
-            <a href="https://boosty.to/fr_edits" target="_blank" style="color: #ff4612; font-size: 14px; text-decoration: none;">Boosty</a>
+            <a href="https://www.twitch.tv/fr_edits32" target="_blank" style="color: #9146FF; text-decoration: none;">Twitch</a> | 
+            <a href="https://boosty.to/fr_edits" target="_blank" style="color: #ff4612; text-decoration: none;">Boosty</a>
         </div>
     </div>
 
     <div class="section-box" style="border-style: dashed;">
         <h4 style="margin: 0;">REKLAMA 📢</h4>
         <div class="ad-card">
-            <p style="font-size: 13px; margin: 0;">Men bilan telegramda suhbatlashing: <b>@FARRUX_PRO_PROGRAMMER</b></p>
+            <p style="font-size: 13px;">Telegram: <b>@FARRUX_PRO_PROGRAMMER</b></p>
         </div>
     </div>
-
 </div>
 
 <script>
-    let clicks = 0;
-    function addClick() {
-        clicks++;
-        document.getElementById('score').innerText = clicks;
-        if(clicks >= 500) {
-            document.getElementById('win-text').style.display = 'block';
-            document.getElementById('score').style.color = '#ffd700';
-        }
-    }
-</script>
-
-    <!-- JavaScript qismini mana bu bilan almashtirib ko'r -->
-<script>
-    // Ballarni xotiradan yuklab olish (agar oldin o'ynagan bo'lsa)
+    // Ballarni LocalStorage'dan olish
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
-    
-    // Sahifa yuklanganda ballni ko'rsatish
     document.getElementById('score').innerText = clicks;
     checkWin();
 
     function addClick() {
         clicks++;
         document.getElementById('score').innerText = clicks;
-        
-        // Ballarni saqlash
         localStorage.setItem('farrux_clicks', clicks);
         
-        // Effekt berish
+        // Animatsiya effekti
         const scoreEl = document.getElementById('score');
         scoreEl.style.transform = 'scale(1.2)';
         setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
@@ -184,11 +166,5 @@
     }
 </script>
 
-<!-- Style qismiga mana bu kichik effektni qo'shib qo'y -->
-<style>
-    #score {
-        transition: transform 0.1s ease;
-    }
-</style>
 </body>
 </html>
