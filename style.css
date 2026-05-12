@@ -163,3 +163,21 @@ body {
     background-blend-mode: overlay;
     background-color: rgba(0, 0, 0, 0.4); /* Rasmni biroz qorong'ulashtirib, chuqurlik beradi */
 }
+body {
+    margin: 0;
+    padding: 0;
+    /* Yangi fon rasmi */
+    background-image: url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg'); 
+    
+    /* Fonni qimirlamaydigan (fixed) qilish */
+    background-attachment: fixed; 
+    
+    /* Rasmni butun ekranga to'g'ri joylashtirish */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    min-height: 100vh;
+}
