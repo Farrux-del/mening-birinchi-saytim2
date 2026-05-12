@@ -8,113 +8,38 @@
     <meta name="keywords" content="Farrux, Farrux-Edits, pro programmer, gamer, video editor, Minecraft Uzbekistan, Paxtaobod gamer">
     <meta name="author" content="Farrux-Edits">
     <title>Farrux-Edits ⚡ | Pro Gamer & Programmer</title>
-    
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            /* Orqa fon rasmi - o'sha YouTube rasmi */
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                        url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            font-family: 'Poppins', sans-serif;
-            color: white;
-            min-height: 100vh;
-        }
-
-        .main-overlay {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .section-box {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 25px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            text-align: center;
-            width: 90%;
-            max-width: 450px;
-            margin-bottom: 25px;
-            transition: transform 0.3s ease;
-        }
-
-        .section-box:hover { transform: translateY(-5px); border-color: #00d2ff; }
-
-        #score {
-            font-size: 45px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            transition: transform 0.1s ease;
-        }
-
-        .click-button {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            background: linear-gradient(145deg, #00d2ff, #0095b3);
-            border: 4px solid #fff;
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
-            cursor: pointer;
-            box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
-            transition: 0.2s;
-        }
-
-        .click-button:hover { transform: scale(1.05); }
-        .click-button:active { transform: scale(0.9); }
-
-        .group-btn {
-            display: block;
-            background: linear-gradient(135deg, #24A1DE, #229ED9);
-            color: white;
-            padding: 15px;
-            margin: 10px 0;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 5px 15px rgba(36, 161, 222, 0.4);
-        }
-
-        .discord-btn {
-            display: inline-block;
-            background: #5865F2;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 10px;
-            text-decoration: none;
-            margin-top: 10px;
-        }
-
-        .ad-card {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 15px;
-            border-radius: 15px;
-            border: 1px solid #00d2ff;
-        }
-    </style>
 </head>
 <body>
 
 <div class="main-overlay">
+    <!-- Sarlavha -->
     <div class="section-box">
         <h1 style="color: #00d2ff; margin: 0;">Farrux-Edits ⚡</h1>
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
 
+    <!-- 2-FUNKSIYA: Musiqa pleyeri -->
     <div class="section-box">
-        <h3>CHAT & MUHOKAMA 💬</h3>
-        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn">👥 Telegram Guruh</a>
+        <h3>FON MUSIQASI 🎵</h3>
+        <audio id="bgMusic" loop>
+            <source src="Missing-You(chosic.com).mp3" type="audio/mpeg">
+        </audio>
+        <button onclick="toggleMusic()" class="group-btn" style="background: linear-gradient(135deg, #ff4612, #ff8c00); border: none; cursor: pointer; width: 100%;">
+            ▶️ Musiqani Yoqish/O'chirish
+        </button>
     </div>
 
+    <!-- 5-FUNKSIYA: IT Monitor Portfolio -->
+    <div class="section-box">
+        <h3>IT SKILLS 💻</h3>
+        <div class="skill-badge">CapCut Editor</div>
+        <div class="skill-badge">Minecraft Java</div>
+        <div class="skill-badge">HTML/CSS Developer</div>
+        <div class="skill-badge">OBS Streamer</div>
+        <p style="font-size: 12px; margin-top: 10px;">5-sinf Informatika Monitori nomzodi</p>
+    </div>
+
+    <!-- Clicker bo'limi -->
     <div class="section-box">
         <h3>Farrux-Clicker 🚀</h3>
         <div id="score">0</div>
@@ -123,14 +48,22 @@
     </div>
 
     <div class="section-box">
-        <p>Boshqa platformalar:</p>
-        <a href="https://discord.gg/mtruzrFZ" target="_blank" class="discord-btn">Discord Server</a>
+        <h3>CHAT & MUHOKAMA 💬</h3>
+        <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn">👥 Telegram Guruh</a>
         <div style="margin-top: 15px;">
-            <a href="https://www.twitch.tv/fr_edits32" target="_blank" style="color: #9146FF; text-decoration: none;">Twitch</a> | 
-            <a href="https://boosty.to/fr_edits" target="_blank" style="color: #ff4612; text-decoration: none;">Boosty</a>
+            <a href="https://discord.gg/mtruzrFZ" target="_blank" class="discord-btn">Discord Server</a>
         </div>
     </div>
 
+    <div class="section-box">
+        <p>Boshqa platformalar:</p>
+        <div style="margin-top: 5px;">
+            <a href="https://www.twitch.tv/fr_edits32" target="_blank" style="color: #9146FF; text-decoration: none; font-weight: bold;">Twitch</a> | 
+            <a href="https://boosty.to/fr_edits" target="_blank" style="color: #ff4612; text-decoration: none; font-weight: bold;">Boosty</a>
+        </div>
+    </div>
+
+    <!-- Reklama -->
     <div class="section-box" style="border-style: dashed;">
         <h4 style="margin: 0;">REKLAMA 📢</h4>
         <div class="ad-card">
@@ -140,7 +73,6 @@
 </div>
 
 <script>
-    // Ballarni LocalStorage'dan olish
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
     checkWin();
@@ -150,7 +82,6 @@
         document.getElementById('score').innerText = clicks;
         localStorage.setItem('farrux_clicks', clicks);
         
-        // Animatsiya effekti
         const scoreEl = document.getElementById('score');
         scoreEl.style.transform = 'scale(1.2)';
         setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
@@ -163,39 +94,22 @@
             document.getElementById('win-text').style.display = 'block';
             document.getElementById('score').style.color = '#ffd700';
             document.getElementById('score').style.textShadow = '0 0 20px #ffd700';
-            let isPlaying = false;
-function toggleMusic() {
-    const music = document.getElementById('bgMusic');
-    if (isPlaying) {
-        music.pause();
-    } else {
-        music.play();
-    }
-    isPlaying = !isPlaying;
-}
         }
+    }
+
+    // Musiqani boshqarish funksiyasi
+    let isPlaying = false;
+    const music = document.getElementById('bgMusic');
+
+    function toggleMusic() {
+        if (isPlaying) {
+            music.pause();
+        } else {
+            music.play();
+        }
+        isPlaying = !isPlaying;
     }
 </script>
 
-    <!-- 2-FUNKSIYA: Musiqa pleyeri (Header qismiga qo'shish mumkin) -->
-<div class="section-box">
-    <h3>FON MUSIQASI 🎵</h3>
-    <audio id="bgMusic" loop>
-        <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3" type="audio/mpeg">
-    </audio>
-    <button onclick="toggleMusic()" class="group-btn" style="background: #ff4612;">
-        ▶️ Musiqani Yoqish/O'chirish
-    </button>
-</div>
-
-<!-- 5-FUNKSIYA: IT Monitor Portfolio -->
-<div class="section-box">
-    <h3>IT SKILLS 💻</h3>
-    <div class="skill-badge">CapCut Editor</div>
-    <div class="skill-badge">Minecraft Java</div>
-    <div class="skill-badge">HTML/CSS Developer</div>
-    <div class="skill-badge">OBS Streamer</div>
-    <p style="font-size: 12px; margin-top: 10px;">5-sinf Informatika Monitori nomzodi</p>
-</div>
 </body>
 </html>
