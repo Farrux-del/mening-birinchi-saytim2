@@ -3,7 +3,7 @@ html, body {
     margin: 0;
     padding: 0;
     min-height: 100vh;
-    /* 6-FUNKSIYA: Minecraft qilichi kursori */
+    /* 6-FUNKSIYA: Minecraft qilichi kursori (sword.png fayli papkada bo'lishi shart) */
     cursor: url('sword.png'), auto !important;
     font-family: 'Poppins', sans-serif;
     color: white;
@@ -15,9 +15,9 @@ html, body {
     background-repeat: no-repeat;
 }
 
-/* Link va tugmalar ustiga borganda kursor pointer bo'lishi uchun */
-a, button, .click-button {
-    cursor: pointer !important;
+/* Link va tugmalar ustiga borganda ham kursor qilich bo'lib qolishi uchun */
+a, button, .click-button, .group-btn, .discord-btn {
+    cursor: url('sword.png'), pointer !important;
 }
 
 .main-overlay {
@@ -170,4 +170,5 @@ a, button, .click-button {
     padding: 8px;
     border-radius: 8px;
     border-left: 3px solid #00d2ff;
+    margin: 5px 0;
 }
