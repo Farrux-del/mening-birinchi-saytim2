@@ -3,13 +3,12 @@ html, body {
     cursor: url('sword.png'), auto !important;
     font-family: 'Poppins', sans-serif;
     color: white;
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
                 url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
-    background-size: cover; background-position: center;
-    background-attachment: fixed;
+    background-size: cover; background-position: center; background-attachment: fixed;
 }
 
-a, button, .click-button { cursor: url('sword.png'), pointer !important; }
+a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !important; }
 
 .main-overlay { display: flex; flex-direction: column; align-items: center; padding: 20px; }
 
@@ -19,30 +18,37 @@ a, button, .click-button { cursor: url('sword.png'), pointer !important; }
     text-align: center; width: 90%; max-width: 450px; margin-bottom: 25px; transition: 0.4s;
 }
 
-.section-box:hover { transform: translateY(-8px); border-color: #00d2ff; box-shadow: 0 0 25px rgba(0, 210, 255, 0.4); }
+.section-box:hover { transform: translateY(-5px); border-color: #00d2ff; }
 
-#score { font-size: 45px; font-weight: bold; margin-bottom: 10px; transition: 0.1s; }
+#score { font-size: 50px; font-weight: bold; margin: 10px 0; }
 
 .click-button {
-    width: 130px; height: 130px; border-radius: 50%;
+    width: 120px; height: 120px; border-radius: 50%;
     background: linear-gradient(145deg, #00d2ff, #0095b3);
-    border: 4px solid #fff; color: #fff; font-size: 18px; font-weight: bold;
-    box-shadow: 0 0 20px rgba(0, 210, 255, 0.5); transition: 0.2s;
+    border: 4px solid #fff; color: white; font-weight: bold; font-size: 18px;
 }
 
-.click-button:active { transform: scale(0.9); }
+/* Darajalar & Progress Bar */
+.level-container { margin-bottom: 10px; }
+.progress-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden; }
+#progress-fill { height: 100%; background: #00ff88; transition: width 0.3s; }
 
-.level-container { margin: 15px 0; width: 100%; }
-#rank-name { font-weight: bold; margin-bottom: 8px; transition: 0.3s; }
-.progress-bar { width: 100%; height: 10px; background: rgba(255, 255, 255, 0.1); border-radius: 5px; overflow: hidden; }
-#progress-fill { width: 0%; height: 100%; background: #00ff88; transition: width 0.3s; }
+/* MINI GAME */
+#game-canvas { width: 100%; height: 180px; background: rgba(0,0,0,0.5); border-radius: 10px; position: relative; overflow: hidden; }
+#creeper { 
+    width: 40px; height: 40px; background: #55ff55; position: absolute; border-radius: 5px; display: none;
+    background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d0/Creeper_Head.png');
+    background-size: cover;
+}
 
-.skill-badge { display: inline-block; padding: 6px 12px; border-radius: 15px; margin: 5px; font-size: 12px; border: 1px solid #00d2ff; }
-.badge-locked { filter: grayscale(1); opacity: 0.4; }
-.badge-unlocked { filter: grayscale(0); opacity: 1; border: 2px solid #ffd700 !important; }
+/* Yutuqlar */
+.skill-badge { display: inline-block; padding: 5px 10px; border-radius: 15px; font-size: 12px; margin: 5px; border: 1px solid #00d2ff; }
+.badge-locked { filter: grayscale(1); opacity: 0.3; }
+.badge-unlocked { border-color: #ffd700; color: #ffd700; box-shadow: 0 0 10px #ffd700; }
 
-.group-btn { display: block; background: #24A1DE; color: white; padding: 15px; margin: 10px 0; border-radius: 12px; text-decoration: none; font-weight: bold; }
-.comment-input { width: 90%; padding: 10px; border-radius: 10px; border: 1px solid #00d2ff; background: rgba(0,0,0,0.5); color: white; margin-bottom: 10px; }
+.group-btn { display: block; padding: 12px; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; margin: 5px 0; }
+.discord-btn { background: #5865F2; padding: 10px; border-radius: 8px; text-decoration: none; color: white; }
+.comment-input { width: 90%; padding: 10px; border-radius: 8px; border: 1px solid #00d2ff; background: rgba(0,0,0,0.4); color: white; margin-bottom: 10px; }
 
-@keyframes levelPulse { from { transform: scale(1); } to { transform: scale(1.05); } }
+@keyframes levelPulse { from { transform: scale(1); } to { transform: scale(1.1); } }
 .level-up-anim { animation: levelPulse 0.5s infinite alternate; }
