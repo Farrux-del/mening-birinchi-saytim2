@@ -4,7 +4,7 @@ html, body {
     padding: 0;
     min-height: 100vh;
     /* 6-FUNKSIYA: Minecraft qilichi kursori */
-    cursor: url('https://cur.cursors-4u.net/games/gam-4/gam389.cur'), auto !important;
+    cursor: url('sword.png'), auto !important;
     font-family: 'Poppins', sans-serif;
     color: white;
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
