@@ -12,7 +12,7 @@
 <body>
 
 <div class="main-overlay">
-    <!-- Sarlavha va Laptop rasmi -->
+    <!-- Sarlavha va Noutbuk -->
     <div class="section-box">
         <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=1000&auto=format&fit=crop" 
              alt="Mening HP noutbukim" 
@@ -21,12 +21,11 @@
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
 
-    <!-- Kirishlar soni -->
     <div class="section-box">
         <p id="visit-count" style="font-size: 14px; margin: 0;">Siz saytga 0 marta kirdingiz</p>
     </div>
 
-    <!-- Musiqa pleyeri -->
+    <!-- Musiqa -->
     <div class="section-box">
         <h3>FON MUSIQASI 🎵</h3>
         <audio id="bgMusic" loop>
@@ -37,7 +36,7 @@
         </button>
     </div>
 
-    <!-- Edit Beats Pleer -->
+    <!-- Edit Beats -->
     <div class="section-box">
         <h3>🎧 Edit Beats (CapCut Music)</h3>
         <div class="audio-card">
@@ -52,7 +51,7 @@
         </div>
     </div>
 
-    <!-- YUTUQLAR (ACHIEVEMENTS) -->
+    <!-- YUTUQLAR -->
     <div class="section-box">
         <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
         <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
@@ -60,7 +59,7 @@
         <div id="badge-3" class="skill-badge badge-locked">Hacker (1000 Click)</div>
     </div>
 
-    <!-- Clicker & Level System -->
+    <!-- Clicker -->
     <div class="section-box">
         <h3>Farrux-Clicker 🚀</h3>
         <div class="level-container">
@@ -72,7 +71,7 @@
         <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
     </div>
 
-    <!-- RAQIBLAR JADVALI -->
+    <!-- Leaderboard -->
     <div class="section-box leaderboard-box">
         <h3>🏆 Raqiblar Jadvali</h3>
         <table class="leaderboard-table">
@@ -82,14 +81,14 @@
         </table>
     </div>
 
-    <!-- MINI GAME: CREEPER HUNTER -->
+    <!-- Creeper Hunter -->
     <div class="section-box" style="border: 2px solid #55ff55;">
         <h3>MINI GAME: CREEPER HUNTER ⚔️</h3>
         <div id="game-canvas"><div id="creeper" onclick="hitCreeper()"></div></div>
         <p id="game-score" style="font-weight: bold; margin-top: 10px;">Ovlangan Kriperlar: 0</p>
     </div>
 
-    <!-- MEHMONLAR KITOBI -->
+    <!-- Mehmonlar Kitobi -->
     <div class="section-box">
         <h3>MEHMONLAR KITOBI 💬</h3>
         <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
@@ -98,7 +97,7 @@
         <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto;"></div>
     </div>
 
-    <!-- ALOQA VA MUHOKAMA -->
+    <!-- Aloqa -->
     <div class="section-box">
         <h3>ALOQA VA MUHOKAMA 💬</h3>
         <a href="https://t.me/farrux_pro_programmer" target="_blank" class="group-btn" style="background: #0088cc;">👤 Shaxsiy Telegram</a>
@@ -109,14 +108,12 @@
     </div>
 </div>
 
-<!-- LIVE CHAT TUGMASI -->
 <a href="https://t.me/farrux_pro_programmer" target="_blank" class="live-chat-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
     <span>Menga yozish</span>
 </a>
 
 <script>
-    // Barcha original JavaScript mantiqlari (Clicker, Badges, Game, Comments)
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
 
@@ -124,6 +121,11 @@
         clicks++;
         document.getElementById('score').innerText = clicks;
         localStorage.setItem('farrux_clicks', clicks);
+        
+        const btn = document.querySelector('.click-button');
+        btn.style.transform = "scale(0.9)";
+        setTimeout(() => { btn.style.transform = "scale(1)"; }, 100);
+
         updateLevel(clicks);
         updateBadges();
         if(clicks >= 500) document.getElementById('win-text').style.display = 'block';
@@ -142,20 +144,25 @@
     }
 
     function updateBadges() {
-        if(clicks >= 100) document.getElementById('badge-1').classList.replace('badge-locked', 'badge-unlocked');
-        if(clicks >= 500) document.getElementById('badge-2').classList.replace('badge-locked', 'badge-unlocked');
-        if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
+        if(clicks >= 100) document.getElementById('badge-1').className = 'skill-badge badge-unlocked';
+        if(clicks >= 500) document.getElementById('badge-2').className = 'skill-badge badge-unlocked';
+        if(clicks >= 1000) document.getElementById('badge-3').className = 'skill-badge badge-unlocked';
     }
 
     let gameScore = 0;
     function moveCreeper() {
         const canvas = document.getElementById('game-canvas');
         const creeper = document.getElementById('creeper');
+        if(!canvas || !creeper) return;
         creeper.style.left = Math.floor(Math.random() * (canvas.clientWidth - 40)) + 'px';
         creeper.style.top = Math.floor(Math.random() * (canvas.clientHeight - 40)) + 'px';
         creeper.style.display = 'block';
     }
-    function hitCreeper() { gameScore++; document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore; document.getElementById('creeper').style.display = 'none'; }
+    function hitCreeper() { 
+        gameScore++; 
+        document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore; 
+        document.getElementById('creeper').style.display = 'none'; 
+    }
     setInterval(moveCreeper, 1500);
 
     let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
@@ -167,7 +174,12 @@
     function addComment() {
         const name = document.getElementById('userName').value;
         const msg = document.getElementById('userMsg').value;
-        if(name && msg) { comments.push({name, msg}); localStorage.setItem('site_comments', JSON.stringify(comments)); displayComments(); }
+        if(name && msg) { 
+            comments.push({name, msg}); 
+            localStorage.setItem('site_comments', JSON.stringify(comments)); 
+            displayComments(); 
+            document.getElementById('userMsg').value = "";
+        }
     }
 
     let visits = localStorage.getItem('site_visits') || 0;
@@ -175,7 +187,11 @@
     document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
 
     let isPlaying = false;
-    function toggleMusic() { const m = document.getElementById('bgMusic'); if (isPlaying) m.pause(); else m.play(); isPlaying = !isPlaying; }
+    function toggleMusic() { 
+        const m = document.getElementById('bgMusic'); 
+        if (isPlaying) m.pause(); else m.play(); 
+        isPlaying = !isPlaying; 
+    }
 
     displayComments(); updateBadges(); updateLevel(clicks);
 </script>
