@@ -14,16 +14,13 @@
 <div class="main-overlay">
     <!-- Sarlavha va Noutbuk rasmi -->
     <div class="section-box">
-        <!-- HP Laptop 14 ko'rinishidagi rasm -->
         <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=1000&auto=format&fit=crop" 
              alt="Mening HP noutbukim" 
              style="width: 100%; border-radius: 15px; margin-bottom: 15px; border: 2px solid #00d2ff;">
-        
         <h1 style="color: #00d2ff; margin: 0;">Farrux-Edits ⚡</h1>
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
 
-    <!-- Kirishlar soni -->
     <div class="section-box">
         <p id="visit-count" style="font-size: 14px; margin: 0;">Siz saytga 0 marta kirdingiz</p>
     </div>
@@ -39,7 +36,7 @@
         </button>
     </div>
 
-    <!-- Edit Beats Pleer -->
+    <!-- Edit Beats -->
     <div class="section-box">
         <h3>🎧 Edit Beats (CapCut Music)</h3>
         <div class="audio-card">
@@ -54,46 +51,50 @@
         </div>
     </div>
 
+    <!-- YUTUQLAR (ACHIEVEMENTS) - Qaytarildi! -->
+    <div class="section-box">
+        <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
+        <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
+        <div id="badge-2" class="skill-badge badge-locked">Pro (500 Click)</div>
+        <div id="badge-3" class="skill-badge badge-locked">Hacker (1000 Click)</div>
+    </div>
+
     <!-- Clicker & Level System -->
     <div class="section-box">
         <h3>Farrux-Clicker 🚀</h3>
         <div class="level-container">
             <p id="rank-name">Daraja: Yuklanmoqda...</p>
-            <div class="progress-bar">
-                <div id="progress-fill"></div>
-            </div>
+            <div class="progress-bar"><div id="progress-fill"></div></div>
         </div>
         <div id="score">0</div>
         <button class="click-button" onclick="addClick()">BOS! 🔥</button>
         <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
     </div>
 
-    <!-- RAQIBLAR JADVALI -->
+    <!-- Raqiblar jadvali -->
     <div class="section-box leaderboard-box">
         <h3>🏆 Raqiblar Jadvali</h3>
         <table class="leaderboard-table">
-            <tr class="rank-1">
-                <td>1. Farrux (Sardor)</td>
-                <td>1030 pts</td>
-            </tr>
-            <tr class="rank-2">
-                <td>2. Muhammadrizo</td>
-                <td>0 pts</td>
-            </tr>
-            <tr class="rank-3">
-                <td>3. Saidafzal</td>
-                <td>0 pts</td>
-            </tr>
+            <tr class="rank-1"><td>1. Farrux (Sardor)</td><td>1030 pts</td></tr>
+            <tr class="rank-2"><td>2. Muhammadrizo</td><td>0 pts</td></tr>
+            <tr class="rank-3"><td>3. Saidafzal</td><td>0 pts</td></tr>
         </table>
     </div>
 
     <!-- MINI GAME: CREEPER HUNTER -->
     <div class="section-box" style="border: 2px solid #55ff55;">
         <h3>MINI GAME: CREEPER HUNTER ⚔️</h3>
-        <div id="game-canvas">
-            <div id="creeper" onclick="hitCreeper()"></div>
-        </div>
+        <div id="game-canvas"><div id="creeper" onclick="hitCreeper()"></div></div>
         <p id="game-score" style="font-weight: bold; margin-top: 10px;">Ovlangan Kriperlar: 0</p>
+    </div>
+
+    <!-- IZOHLAR (MEHMONLAR KITOBI) - Qaytarildi! -->
+    <div class="section-box">
+        <h3>MEHMONLAR KITOBI 💬</h3>
+        <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
+        <input type="text" id="userMsg" class="comment-input" placeholder="Xabar yozing...">
+        <button onclick="addComment()" class="group-btn" style="width: 100%; border: none; cursor: pointer; background: #28a745;">Yuborish</button>
+        <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto;"></div>
     </div>
 
     <!-- Ijtimoiy tarmoqlar -->
@@ -106,14 +107,14 @@
     </div>
 </div>
 
-<!-- LIVE CHAT TUGMASI (3-variant) -->
+<!-- LIVE CHAT TUGMASI -->
 <a href="https://t.me/Farrux_Edits" target="_blank" class="live-chat-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
     <span>Live Chat</span>
 </a>
 
 <script>
-    // Clicker mantiqi (Sening koding o'zgarishsiz qoldi)
+    // Clicker & Levels
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
 
@@ -121,11 +122,8 @@
         clicks++;
         document.getElementById('score').innerText = clicks;
         localStorage.setItem('farrux_clicks', clicks);
-        const scoreEl = document.getElementById('score');
-        scoreEl.style.transform = 'scale(1.2)';
-        setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
-        checkWin();
         updateLevel(clicks);
+        updateBadges();
     }
 
     function updateLevel(score) {
@@ -138,10 +136,13 @@
         else { rank = "Real Madrid Fanati 👑"; progress = 100; rankText.classList.add('level-up-anim'); }
         rankText.innerText = "Daraja: " + rank;
         progressFill.style.width = progress + "%";
+        if(score >= 500) document.getElementById('win-text').style.display = 'block';
     }
 
-    function checkWin() {
-        if(clicks >= 500) document.getElementById('win-text').style.display = 'block';
+    function updateBadges() {
+        if(clicks >= 100) document.getElementById('badge-1').classList.replace('badge-locked', 'badge-unlocked');
+        if(clicks >= 500) document.getElementById('badge-2').classList.replace('badge-locked', 'badge-unlocked');
+        if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
     }
 
     // Mini Game
@@ -153,22 +154,31 @@
         creeper.style.top = Math.floor(Math.random() * (canvas.clientHeight - 40)) + 'px';
         creeper.style.display = 'block';
     }
-    function hitCreeper() {
-        gameScore++;
-        document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore;
-        creeper.style.display = 'none';
-    }
+    function hitCreeper() { gameScore++; document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore; creeper.style.display = 'none'; }
     setInterval(moveCreeper, 1500);
 
-    // Musiqa
-    let isPlaying = false;
-    function toggleMusic() { 
-        const music = document.getElementById('bgMusic');
-        if (isPlaying) music.pause(); else music.play(); 
-        isPlaying = !isPlaying; 
+    // Izohlar
+    let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
+    function displayComments() {
+        const list = document.getElementById('comments-list');
+        list.innerHTML = comments.length === 0 ? "<p style='color:#888'>Hozircha izohlar yo'q...</p>" : 
+            comments.map(c => `<p style='background:rgba(255,255,255,0.05);padding:5px;border-radius:5px;margin:5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
+    }
+    function addComment() {
+        const name = document.getElementById('userName').value;
+        const msg = document.getElementById('userMsg').value;
+        if(name && msg) { comments.push({name, msg}); localStorage.setItem('site_comments', JSON.stringify(comments)); displayComments(); }
     }
 
-    updateLevel(clicks);
+    // Visits & Init
+    let visits = localStorage.getItem('site_visits') || 0;
+    visits++; localStorage.setItem('site_visits', visits);
+    document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
+    
+    let isPlaying = false;
+    function toggleMusic() { const m = document.getElementById('bgMusic'); if (isPlaying) m.pause(); else m.play(); isPlaying = !isPlaying; }
+
+    displayComments(); updateBadges(); updateLevel(clicks);
 </script>
 </body>
 </html>
