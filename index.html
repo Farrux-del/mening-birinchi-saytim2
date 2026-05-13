@@ -44,7 +44,6 @@
             </div>
             <div class="audio-track">
                 <span class="track-name">🦴 Bone Crack</span>
-                <!-- YANGI WEBM FORMATIDAGI KOD SHU YERDA -->
                 <audio controls>
                     <source src="bone-crack.webm" type="audio/webm">
                     Brauzeringiz audio elementini qo'llab-quvvatlamaydi.
@@ -124,8 +123,13 @@
     </div>
 </div>
 
+<!-- SHAXSIY CHAT TUGMASI -->
+<a href="https://t.me/farrux_pro_programmer" target="_blank" class="live-chat-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
+    <span>Menga yozish</span>
+</a>
+
 <script>
-    // 1. Clicker & Levels
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
 
@@ -166,12 +170,12 @@
         if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
     }
 
-    // 2. Mini Game: Creeper Hunter
     let gameScore = 0;
     const creeper = document.getElementById('creeper');
     const canvas = document.getElementById('game-canvas');
 
     function moveCreeper() {
+        if(!canvas || !creeper) return;
         const maxX = canvas.clientWidth - 40;
         const maxY = canvas.clientHeight - 40;
         creeper.style.left = Math.floor(Math.random() * maxX) + 'px';
@@ -188,7 +192,6 @@
     }
     setInterval(moveCreeper, 1500);
 
-    // 3. Other Functions
     let isPlaying = false;
     const music = document.getElementById('bgMusic');
     function toggleMusic() { if (isPlaying) music.pause(); else music.play(); isPlaying = !isPlaying; }
@@ -207,7 +210,7 @@
     function addComment() {
         const name = document.getElementById('userName').value;
         const msg = document.getElementById('userMsg').value;
-        if(name && msg) { comments.push({name, msg}); localStorage.setItem('site_comments', JSON.stringify(comments)); displayComments(); }
+        if(name && msg) { comments.push({name, msg}); localStorage.setItem('site_comments', JSON.stringify(comments)); displayComments(); document.getElementById('userMsg').value = ""; }
     }
 
     displayComments(); updateBadges(); updateLevel(clicks);
