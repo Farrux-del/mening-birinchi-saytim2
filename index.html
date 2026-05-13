@@ -34,7 +34,7 @@
         </button>
     </div>
 
-    <!-- Edit Beats Pleer -->
+    <!-- Edit Beats Pleer (TUZATILGAN QISM) -->
     <div class="section-box">
         <h3>🎧 Edit Beats (CapCut Music)</h3>
         <div class="audio-card">
@@ -122,7 +122,7 @@
     </div>
 </div>
 
-<!-- SHAXSIY CHAT TUGMASI (O'ng burchakda suzuvchi) -->
+<!-- SHAXSIY CHAT TUGMASI -->
 <a href="https://t.me/farrux_pro_programmer" target="_blank" class="live-chat-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
     <span>Menga yozish</span>
@@ -152,7 +152,7 @@
         if (score < 100) { rank = "Yangi o'yinchi 🪵"; progress = (score / 100) * 100; rankText.style.color = "#ffd700"; }
         else if (score < 500) { rank = "Edit Ustasi 🎬"; progress = ((score - 100) / 400) * 100; rankText.style.color = "#c0c0c0"; }
         else if (score < 1000) { rank = "Professional Gamer 🎮"; progress = ((score - 500) / 500) * 100; rankText.style.color = "#00d2ff"; }
-        else { rank = "Real Madrid Fanati 👑"; progress = 100; rankText.style.color = "#ffffff"; rankText.classList.add('level-up-anim'); }
+        else { rank = "Real Madrid Fanati 👑"; progress = 100; rankText.style.color = "#ffffff"; }
         rankText.innerText = "Daraja: " + rank;
         progressFill.style.width = progress + "%";
     }
@@ -198,7 +198,7 @@
     const music = document.getElementById('bgMusic');
     function toggleMusic() { 
         if (isPlaying) music.pause(); 
-        else music.play().catch(() => console.log("User interaction required for audio")); 
+        else music.play().catch(() => console.log("Pleer ishlashi uchun sahifada bir marta bosing")); 
         isPlaying = !isPlaying; 
     }
 
@@ -226,7 +226,6 @@
         }
     }
 
-    // Start Up
     displayComments(); updateBadges(); updateLevel(clicks);
 </script>
 
