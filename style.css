@@ -1,3 +1,5 @@
+/* Oldingi CSS kodingga mana bularni qo'shib qo'y yoki hammasini yangila */
+
 html, body {
     margin: 0; padding: 0; min-height: 100vh;
     cursor: url('sword.png'), auto !important;
@@ -8,8 +10,6 @@ html, body {
     background-size: cover; background-position: center; background-attachment: fixed;
 }
 
-a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !important; }
-
 .main-overlay { display: flex; flex-direction: column; align-items: center; padding: 20px; }
 
 .section-box {
@@ -18,70 +18,40 @@ a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !importan
     text-align: center; width: 90%; max-width: 450px; margin-bottom: 25px; transition: 0.4s;
 }
 
-.section-box:hover { transform: translateY(-5px); border-color: #00d2ff; }
+/* LIVE CHAT TUGMASI DIZAYNI */
+.live-chat-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #24A1DE;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    transition: 0.3s ease;
+}
 
-/* RAQIBLAR JADVALI */
-.leaderboard-box { border: 1px solid #ffd700; }
-.leaderboard-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-.leaderboard-table td { padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-.rank-1 { color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
-.rank-2 { color: #c0c0c0; }
-.rank-3 { color: #cd7f32; }
+.live-chat-btn:hover { transform: scale(1.1); background: #1e88bb; }
+.live-chat-btn img { width: 25px; height: 25px; }
 
-/* AUDIO PLEER */
-.audio-card { background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 12px; display: flex; flex-direction: column; gap: 10px; }
-.audio-track { display: flex; justify-content: space-between; align-items: center; background: rgba(255, 255, 255, 0.05); padding: 8px; border-radius: 8px; }
-.track-name { font-size: 13px; margin-right: 10px; }
-audio { height: 35px; width: 160px; filter: invert(100%); }
+/* Rasm effekti */
+img:hover { transform: scale(1.02); transition: 0.3s; }
 
-#score { font-size: 50px; font-weight: bold; margin: 10px 0; }
-
+/* Boshqa dizayn elementlari (kodingdan olingan) */
 .click-button {
     width: 120px; height: 120px; border-radius: 50%;
     background: linear-gradient(145deg, #00d2ff, #0095b3);
-    border: 4px solid #fff; color: white; font-weight: bold; font-size: 18px;
-    transition: 0.1s; border: none; outline: none;
+    border: none; color: white; font-weight: bold; cursor: pointer;
 }
-
-.click-button:active { transform: scale(0.95); }
-
-/* Darajalar & Progress Bar */
-.level-container { margin-bottom: 10px; }
 .progress-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden; }
 #progress-fill { height: 100%; background: #00ff88; transition: width 0.3s; }
-
-/* MINI GAME - Creeper Hunter */
-#game-canvas { 
-    width: 100%; 
-    height: 180px; 
-    background: rgba(0,0,0,0.5); 
-    border-radius: 10px; 
-    position: relative; 
-    overflow: hidden;
-    border: 1px solid #55ff55;
-}
-
-#creeper { 
-    width: 40px; 
-    height: 40px; 
-    position: absolute; 
-    border-radius: 5px; 
-    display: none;
-    background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d0/Creeper_Head.png'); 
-    background-size: cover;
-    background-position: center;
-    image-rendering: pixelated; 
-    z-index: 100;
-}
-
-/* Yutuqlar */
-.skill-badge { display: inline-block; padding: 5px 10px; border-radius: 15px; font-size: 12px; margin: 5px; border: 1px solid #00d2ff; }
-.badge-locked { filter: grayscale(1); opacity: 0.3; }
-.badge-unlocked { border-color: #ffd700; color: #ffd700; box-shadow: 0 0 10px #ffd700; }
-
+#game-canvas { width: 100%; height: 150px; background: rgba(0,0,0,0.5); position: relative; border-radius: 10px; }
+#creeper { width: 40px; height: 40px; position: absolute; background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d0/Creeper_Head.png'); background-size: cover; display: none; }
 .group-btn { display: block; padding: 12px; border-radius: 10px; text-decoration: none; color: white; font-weight: bold; margin: 5px 0; text-align: center; }
 .discord-btn { background: #5865F2; padding: 10px; border-radius: 8px; text-decoration: none; color: white; display: inline-block; }
-.comment-input { width: 90%; padding: 10px; border-radius: 8px; border: 1px solid #00d2ff; background: rgba(0,0,0,0.4); color: white; margin-bottom: 10px; outline: none; }
-
-@keyframes levelPulse { from { transform: scale(1); } to { transform: scale(1.1); } }
-.level-up-anim { animation: levelPulse 0.5s infinite alternate; }
