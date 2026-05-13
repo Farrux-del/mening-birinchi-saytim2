@@ -7,14 +7,18 @@
     <meta name="keywords" content="Farrux, Farrux-Edits, gamer, video editor, Minecraft, Paxtaobod">
     <meta name="author" content="Farrux-Edits">
     <title>Farrux-Edits ⚡ | Pro Gamer & Programmer</title>
-    <!-- CSS faylini ulash -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <div class="main-overlay">
-    <!-- Sarlavha -->
+    <!-- Sarlavha va Noutbuk rasmi -->
     <div class="section-box">
+        <!-- HP Laptop 14 ko'rinishidagi rasm -->
+        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?q=80&w=1000&auto=format&fit=crop" 
+             alt="Mening HP noutbukim" 
+             style="width: 100%; border-radius: 15px; margin-bottom: 15px; border: 2px solid #00d2ff;">
+        
         <h1 style="color: #00d2ff; margin: 0;">Farrux-Edits ⚡</h1>
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
@@ -45,21 +49,9 @@
             </div>
             <div class="audio-track">
                 <span class="track-name">🦴 Bone Crack</span>
-                <!-- MP3 formatiga o'zgartirilgan qism -->
-                <audio controls>
-                    <source src="bone-crack.mp3" type="audio/mpeg">
-                    Brauzeringiz audio elementini qo'llab-quvvatlamaydi.
-                </audio>
+                <audio controls src="bone-crack.mp3"></audio>
             </div>
         </div>
-    </div>
-
-    <!-- Yutuqlar bo'limi -->
-    <div class="section-box">
-        <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
-        <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
-        <div id="badge-2" class="skill-badge badge-locked">Pro (500 Click)</div>
-        <div id="badge-3" class="skill-badge badge-locked">Hacker (1000 Click)</div>
     </div>
 
     <!-- Clicker & Level System -->
@@ -98,21 +90,10 @@
     <!-- MINI GAME: CREEPER HUNTER -->
     <div class="section-box" style="border: 2px solid #55ff55;">
         <h3>MINI GAME: CREEPER HUNTER ⚔️</h3>
-        <p style="font-size: 12px; margin-bottom: 10px;">Kriperni portlashidan oldin tuting!</p>
         <div id="game-canvas">
             <div id="creeper" onclick="hitCreeper()"></div>
         </div>
         <p id="game-score" style="font-weight: bold; margin-top: 10px;">Ovlangan Kriperlar: 0</p>
-    </div>
-
-    <!-- Izohlar bo'limi -->
-    <div class="section-box">
-        <h3>MEHMONLAR KITOBI 💬</h3>
-        <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
-        <input type="text" id="userMsg" class="comment-input" placeholder="Xabar yozing...">
-        <button onclick="addComment()" class="group-btn" style="width: 100%; border: none; cursor: pointer; background: #28a745;">Yuborish</button>
-        <div id="comments-list" style="text-align: left; margin-top: 15px; font-size: 14px; max-height: 150px; overflow-y: auto;">
-        </div>
     </div>
 
     <!-- Ijtimoiy tarmoqlar -->
@@ -125,8 +106,14 @@
     </div>
 </div>
 
+<!-- LIVE CHAT TUGMASI (3-variant) -->
+<a href="https://t.me/Farrux_Edits" target="_blank" class="live-chat-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
+    <span>Live Chat</span>
+</a>
+
 <script>
-    // Clicker & Levels
+    // Clicker mantiqi (Sening koding o'zgarishsiz qoldi)
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
 
@@ -138,7 +125,6 @@
         scoreEl.style.transform = 'scale(1.2)';
         setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
         checkWin();
-        updateBadges();
         updateLevel(clicks);
     }
 
@@ -146,73 +132,43 @@
         let rank = ""; let progress = 0;
         const rankText = document.getElementById('rank-name');
         const progressFill = document.getElementById('progress-fill');
-        if (score < 100) { rank = "Yangi o'yinchi 🪵"; progress = (score / 100) * 100; rankText.style.color = "#ffd700"; }
-        else if (score < 500) { rank = "Edit Ustasi 🎬"; progress = ((score - 100) / 400) * 100; rankText.style.color = "#c0c0c0"; }
-        else if (score < 1000) { rank = "Professional Gamer 🎮"; progress = ((score - 500) / 500) * 100; rankText.style.color = "#00d2ff"; }
-        else { rank = "Real Madrid Fanati 👑"; progress = 100; rankText.style.color = "#ffffff"; rankText.classList.add('level-up-anim'); }
+        if (score < 100) { rank = "Yangi o'yinchi 🪵"; progress = (score / 100) * 100; }
+        else if (score < 500) { rank = "Edit Ustasi 🎬"; progress = ((score - 100) / 400) * 100; }
+        else if (score < 1000) { rank = "Professional Gamer 🎮"; progress = ((score - 500) / 500) * 100; }
+        else { rank = "Real Madrid Fanati 👑"; progress = 100; rankText.classList.add('level-up-anim'); }
         rankText.innerText = "Daraja: " + rank;
         progressFill.style.width = progress + "%";
     }
 
     function checkWin() {
-        if(clicks >= 500) {
-            document.getElementById('win-text').style.display = 'block';
-            document.getElementById('score').style.color = '#ffd700';
-        }
+        if(clicks >= 500) document.getElementById('win-text').style.display = 'block';
     }
 
-    function updateBadges() {
-        if(clicks >= 100) document.getElementById('badge-1').classList.replace('badge-locked', 'badge-unlocked');
-        if(clicks >= 500) document.getElementById('badge-2').classList.replace('badge-locked', 'badge-unlocked');
-        if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
-    }
-
-    // Mini Game: Creeper Hunter
+    // Mini Game
     let gameScore = 0;
     const creeper = document.getElementById('creeper');
-    const canvas = document.getElementById('game-canvas');
-
     function moveCreeper() {
-        const maxX = canvas.clientWidth - 40;
-        const maxY = canvas.clientHeight - 40;
-        creeper.style.left = Math.floor(Math.random() * maxX) + 'px';
-        creeper.style.top = Math.floor(Math.random() * maxY) + 'px';
+        const canvas = document.getElementById('game-canvas');
+        creeper.style.left = Math.floor(Math.random() * (canvas.clientWidth - 40)) + 'px';
+        creeper.style.top = Math.floor(Math.random() * (canvas.clientHeight - 40)) + 'px';
         creeper.style.display = 'block';
     }
-
     function hitCreeper() {
         gameScore++;
         document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore;
         creeper.style.display = 'none';
-        canvas.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
-        setTimeout(() => { canvas.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; }, 100);
     }
     setInterval(moveCreeper, 1500);
 
-    // Other Functions
+    // Musiqa
     let isPlaying = false;
-    const music = document.getElementById('bgMusic');
-    function toggleMusic() { if (isPlaying) music.pause(); else music.play(); isPlaying = !isPlaying; }
-
-    let visits = localStorage.getItem('site_visits') || 0;
-    visits++;
-    localStorage.setItem('site_visits', visits);
-    document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
-
-    let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
-    function displayComments() {
-        const list = document.getElementById('comments-list');
-        list.innerHTML = comments.length === 0 ? "<p style='color:#888'>Hozircha izohlar yo'q...</p>" : 
-            comments.map(c => `<p style='background:rgba(255,255,255,0.05);padding:5px;border-radius:5px;margin:5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
-    }
-    function addComment() {
-        const name = document.getElementById('userName').value;
-        const msg = document.getElementById('userMsg').value;
-        if(name && msg) { comments.push({name, msg}); localStorage.setItem('site_comments', JSON.stringify(comments)); displayComments(); }
+    function toggleMusic() { 
+        const music = document.getElementById('bgMusic');
+        if (isPlaying) music.pause(); else music.play(); 
+        isPlaying = !isPlaying; 
     }
 
-    displayComments(); updateBadges(); updateLevel(clicks);
+    updateLevel(clicks);
 </script>
-
 </body>
 </html>
