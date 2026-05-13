@@ -12,18 +12,15 @@
 <body>
 
 <div class="main-overlay">
-    <!-- Sarlavha -->
     <div class="section-box">
         <h1 style="color: #00d2ff; margin: 0;">Farrux-Edits ⚡</h1>
         <p style="font-size: 14px; color: #ccc;">Gamer & Programmer</p>
     </div>
 
-    <!-- Kirishlar soni -->
     <div class="section-box">
         <p id="visit-count" style="font-size: 14px; margin: 0;">Siz saytga 0 marta kirdingiz</p>
     </div>
 
-    <!-- Musiqa pleyeri (Fon uchun) -->
     <div class="section-box">
         <h3>FON MUSIQASI 🎵</h3>
         <audio id="bgMusic" loop>
@@ -34,7 +31,7 @@
         </button>
     </div>
 
-    <!-- Edit Beats Pleer (TUZATILGAN QISM) -->
+    <!-- Edit Beats Pleer (TO'G'RILANGAN) -->
     <div class="section-box">
         <h3>🎧 Edit Beats (CapCut Music)</h3>
         <div class="audio-card">
@@ -45,13 +42,12 @@
             <div class="audio-track">
                 <span class="track-name">🦴 Bone Crack</span>
                 <audio controls>
-                    <source src="bone-crack.webm" type="audio/webm">
+                    <source src="bone-crack.mp3" type="audio/mpeg">
                 </audio>
             </div>
         </div>
     </div>
 
-    <!-- Yutuqlar bo'limi -->
     <div class="section-box">
         <h3>YUTUQLAR (ACHIEVEMENTS) 🏆</h3>
         <div id="badge-1" class="skill-badge badge-locked">Novice (100 Click)</div>
@@ -59,7 +55,6 @@
         <div id="badge-3" class="skill-badge badge-locked">Hacker (1000 Click)</div>
     </div>
 
-    <!-- Clicker & Level System -->
     <div class="section-box">
         <h3>Farrux-Clicker 🚀</h3>
         <div class="level-container">
@@ -73,7 +68,6 @@
         <div id="win-text" style="display:none; color: #ffd700; margin-top: 10px; font-weight: bold;">🏆 AFSONAVIY GAMER!</div>
     </div>
 
-    <!-- RAQIBLAR JADVALI -->
     <div class="section-box leaderboard-box">
         <h3>🏆 Raqiblar Jadvali</h3>
         <table class="leaderboard-table">
@@ -92,17 +86,14 @@
         </table>
     </div>
 
-    <!-- MINI GAME: CREEPER HUNTER -->
     <div class="section-box" style="border: 2px solid #55ff55;">
         <h3>MINI GAME: CREEPER HUNTER ⚔️</h3>
-        <p style="font-size: 12px; margin-bottom: 10px;">Kriperni portlashidan oldin tuting!</p>
         <div id="game-canvas">
             <div id="creeper" onclick="hitCreeper()"></div>
         </div>
         <p id="game-score" style="font-weight: bold; margin-top: 10px;">Ovlangan Kriperlar: 0</p>
     </div>
 
-    <!-- Mehmonlar kitobi (Izohlar) -->
     <div class="section-box">
         <h3>MEHMONLAR KITOBI 💬</h3>
         <input type="text" id="userName" class="comment-input" placeholder="Ismingiz...">
@@ -112,7 +103,6 @@
         </div>
     </div>
 
-    <!-- Ijtimoiy tarmoqlar -->
     <div class="section-box">
         <h3>CHAT & MUHOKAMA 💬</h3>
         <a href="https://t.me/+ua9nAGiKN3FjM2My" target="_blank" class="group-btn" style="background: #24A1DE;">👥 Telegram Guruh</a>
@@ -122,14 +112,12 @@
     </div>
 </div>
 
-<!-- SHAXSIY CHAT TUGMASI -->
 <a href="https://t.me/farrux_pro_programmer" target="_blank" class="live-chat-btn">
     <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram Chat">
     <span>Menga yozish</span>
 </a>
 
 <script>
-    // Clicker Logic
     let clicks = localStorage.getItem('farrux_clicks') ? parseInt(localStorage.getItem('farrux_clicks')) : 0;
     document.getElementById('score').innerText = clicks;
 
@@ -137,9 +125,6 @@
         clicks++;
         document.getElementById('score').innerText = clicks;
         localStorage.setItem('farrux_clicks', clicks);
-        const scoreEl = document.getElementById('score');
-        scoreEl.style.transform = 'scale(1.2)';
-        setTimeout(() => scoreEl.style.transform = 'scale(1)', 100);
         checkWin();
         updateBadges();
         updateLevel(clicks);
@@ -170,12 +155,10 @@
         if(clicks >= 1000) document.getElementById('badge-3').classList.replace('badge-locked', 'badge-unlocked');
     }
 
-    // Creeper Hunter Logic
     let gameScore = 0;
-    const creeper = document.getElementById('creeper');
-    const canvas = document.getElementById('game-canvas');
-
     function moveCreeper() {
+        const canvas = document.getElementById('game-canvas');
+        const creeper = document.getElementById('creeper');
         if(!canvas || !creeper) return;
         const maxX = canvas.clientWidth - 40;
         const maxY = canvas.clientHeight - 40;
@@ -183,17 +166,13 @@
         creeper.style.top = Math.floor(Math.random() * maxY) + 'px';
         creeper.style.display = 'block';
     }
-
     function hitCreeper() {
         gameScore++;
         document.getElementById('game-score').innerText = "Ovlangan Kriperlar: " + gameScore;
-        creeper.style.display = 'none';
-        canvas.style.backgroundColor = 'rgba(255, 0, 0, 0.3)';
-        setTimeout(() => { canvas.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; }, 100);
+        document.getElementById('creeper').style.display = 'none';
     }
     setInterval(moveCreeper, 1500);
 
-    // Music Toggle
     let isPlaying = false;
     const music = document.getElementById('bgMusic');
     function toggleMusic() { 
@@ -202,18 +181,15 @@
         isPlaying = !isPlaying; 
     }
 
-    // Visit Counter
     let visits = localStorage.getItem('site_visits') || 0;
     visits++;
     localStorage.setItem('site_visits', visits);
     document.getElementById('visit-count').innerText = "Siz saytga " + visits + " marta kirdingiz";
 
-    // Comments Logic
     let comments = JSON.parse(localStorage.getItem('site_comments')) || [];
     function displayComments() {
         const list = document.getElementById('comments-list');
-        list.innerHTML = comments.length === 0 ? "<p style='color:#888'>Hozircha izohlar yo'q...</p>" : 
-            comments.map(c => `<p style='background:rgba(255,255,255,0.05);padding:5px;border-radius:5px;margin:5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
+        list.innerHTML = comments.map(c => `<p style='background:rgba(255,255,255,0.05);padding:5px;border-radius:5px;margin:5px 0;'><b>${c.name}:</b> ${c.msg}</p>`).join('');
     }
     function addComment() {
         const name = document.getElementById('userName').value;
@@ -225,9 +201,7 @@
             document.getElementById('userMsg').value = ""; 
         }
     }
-
-    displayComments(); updateBadges(); updateLevel(clicks);
+    displayComments(); updateLevel(clicks);
 </script>
-
 </body>
 </html>
