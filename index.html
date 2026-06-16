@@ -46,16 +46,31 @@
     </div>
 
     <!-- 📩 BUYURTMA (GMAIL) -->
-    <div class="card">
-        <h2>📩 Buyurtma berish</h2>
+  <div class="card">
+    <h2>📩 Buyurtma berish</h2>
 
-        <input id="name" type="text" placeholder="Ismingiz">
-        <textarea id="desc" placeholder="Qanday edit kerakligini yozing"></textarea>
+    <input id="name" type="text" placeholder="Ismingiz">
+    <textarea id="desc" placeholder="Qanday edit kerakligini yozing"></textarea>
 
-        <button class="btn" onclick="sendEmail()">
-            🚀 Gmailga yuborish
-        </button>
-    </div>
+    <button class="btn" onclick="sendMail()">
+        🚀 Gmail ochish
+    </button>
+</div>
+
+<script>
+function sendMail() {
+    let name = document.getElementById("name").value;
+    let desc = document.getElementById("desc").value;
+
+    let subject = "Video edit buyurtma";
+    let body =
+        "Ism: " + name + "%0D%0A" +
+        "Tavsif: " + desc;
+
+    window.location.href =
+        "mailto:qobilovfarruxbek6@gmail.com?subject=" + subject + "&body=" + body;
+}
+</script>
 
     <!-- ⭐ NIMA UCHUN MEN -->
     <div class="card">
