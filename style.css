@@ -26,6 +26,11 @@ h1{
     padding:20px;
     margin-top:20px;
     border-radius:15px;
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:scale(1.02);
 }
 
 input,
@@ -35,6 +40,7 @@ textarea{
     margin-top:10px;
     border:none;
     border-radius:10px;
+    outline:none;
 }
 
 textarea{
@@ -55,4 +61,23 @@ textarea{
 
 .btn:hover{
     opacity:0.8;
+}
+
+/* 📱 Mobile fix */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    .card {
+        padding: 15px;
+    }
+
+    .btn {
+        font-size: 14px;
+    }
 }
