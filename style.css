@@ -1,139 +1,58 @@
-/* ASOSIY DESIGN */
-html, body {
-    margin: 0; padding: 0; min-height: 100vh;
-    cursor: url('sword.png'), auto !important;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                url('https://i.ytimg.com/vi/uUvt5TX9qjU/maxresdefault.jpg');
-    background-size: cover; background-position: center; background-attachment: fixed;
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0f172a;
+    color:white;
 }
 
-a, button, .click-button, #creeper { cursor: url('sword.png'), pointer !important; }
-
-.main-overlay { display: flex; flex-direction: column; align-items: center; padding: 20px; }
-
-.section-box {
-    background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(12px);
-    padding: 25px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.2);
-    text-align: center; width: 90%; max-width: 450px; margin-bottom: 25px; transition: 0.4s ease;
+.container{
+    max-width:800px;
+    margin:auto;
+    padding:20px;
 }
 
-.section-box:hover { transform: translateY(-5px); border-color: #00d2ff; }
-
-/* JADVAL */
-.leaderboard-box { border: 1px solid #ffd700; }
-.leaderboard-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-.leaderboard-table td { padding: 10px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-.rank-1 { color: #ffd700; font-weight: bold; text-shadow: 0 0 10px rgba(255, 215, 0, 0.5); }
-
-/* AUDIO PLEERLAR */
-.audio-card { 
-    background: rgba(0, 0, 0, 0.3); padding: 15px; border-radius: 12px; 
-    display: flex; flex-direction: column; gap: 12px; 
-}
-.audio-track { 
-    display: flex; justify-content: space-between; align-items: center; 
-    background: rgba(255, 255, 255, 0.08); padding: 12px 15px; border-radius: 12px; 
-    gap: 15px; flex-wrap: wrap; 
-}
-.track-name { font-weight: bold; font-size: 14px; color: #fff; min-width: 100px; }
-audio { 
-    height: 35px; flex-grow: 1; min-width: 250px; 
-    filter: invert(100%) hue-rotate(180deg) brightness(1.5); outline: none;
+h1{
+    text-align:center;
+    color:#00d4ff;
 }
 
-/* CLICKER */
-#score { font-size: 50px; font-weight: bold; margin: 10px 0; }
-.click-button {
-    width: 120px; height: 120px; border-radius: 50%;
-    background: linear-gradient(145deg, #00d2ff, #0095b3);
-    border: none; color: white; font-weight: bold; font-size: 18px;
-    transition: 0.3s ease; outline: none; box-shadow: 0 0 20px rgba(0, 210, 255, 0.4);
+.subtitle{
+    text-align:center;
+    color:#ccc;
 }
 
-/* HOVER EFFEKTLARI */
-.click-button:hover, .group-btn:hover, .discord-btn:hover, .live-chat-btn:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 210, 255, 0.6);
-    filter: brightness(1.2);
+.card{
+    background:#1e293b;
+    padding:20px;
+    margin-top:20px;
+    border-radius:15px;
 }
 
-.click-button:active, .group-btn:active, .discord-btn:active {
-    transform: translateY(2px);
+input,
+textarea{
+    width:100%;
+    padding:12px;
+    margin-top:10px;
+    border:none;
+    border-radius:10px;
 }
 
-/* PROGRESS BAR */
-.progress-bar { width: 100%; height: 10px; background: rgba(255,255,255,0.1); border-radius: 5px; overflow: hidden; margin-top: 10px; }
-#progress-fill { height: 100%; background: #00ff88; transition: width 0.3s; width: 0%; }
-
-/* MINI GAME */
-#game-canvas { 
-    width: 100%; height: 180px; background: rgba(0,0,0,0.5); 
-    border-radius: 10px; position: relative; overflow: hidden; border: 1px solid #55ff55;
-}
-#creeper { 
-    width: 40px; height: 40px; position: absolute; border-radius: 5px; display: none;
-    background-image: url('https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d0/Creeper_Head.png'); 
-    background-size: cover; image-rendering: pixelated;
+textarea{
+    height:120px;
 }
 
-/* TUGMALAR VA INPUTLAR */
-.group-btn { 
-    display: block; padding: 12px; border-radius: 10px; text-decoration: none; 
-    color: white; font-weight: bold; margin: 5px 0; text-align: center;
-    transition: 0.3s ease;
-}
-.discord-btn { 
-    background: #5865F2; padding: 10px; border-radius: 8px; text-decoration: none; 
-    color: white; display: inline-block; transition: 0.3s ease;
-}
-.comment-input { width: 90%; padding: 10px; border-radius: 8px; border: 1px solid #00d2ff; background: rgba(0,0,0,0.4); color: white; margin-bottom: 10px; }
-
-/* YUTUQLAR */
-.skill-badge { display: inline-block; padding: 5px 10px; border-radius: 15px; font-size: 12px; margin: 5px; border: 1px solid #00d2ff; }
-.badge-locked { filter: grayscale(1); opacity: 0.3; }
-.badge-unlocked { border-color: #ffd700; color: #ffd700; box-shadow: 0 0 10px #ffd700; }
-
-/* SHAXSIY CHAT TUGMASI (TUZATILGAN) */
-.live-chat-btn {
-    position: fixed; 
-    bottom: 20px; 
-    right: 20px; 
-    background: #24A1DE; 
-    color: white; 
-    padding: 12px 25px; 
-    border-radius: 50px; 
-    text-decoration: none; 
-    display: flex; 
-    align-items: center; 
-    gap: 12px; 
-    z-index: 1000; 
-    box-shadow: 0 8px 20px rgba(0,0,0,0.5); 
-    font-weight: bold; 
-    transition: 0.3s ease; 
-    animation: bounceChat 2s infinite;
-    white-space: nowrap; /* MATNNI BIR QATORDA TUTADI */
-    min-width: 150px; /* TUGMANI SIQILISHIDAN HIMOYA QILADI */
+.btn{
+    display:block;
+    margin-top:15px;
+    text-align:center;
+    background:#00d4ff;
+    color:black;
+    text-decoration:none;
+    padding:12px;
+    border-radius:10px;
+    font-weight:bold;
 }
 
-.live-chat-btn img {
-    width: 24px;
-    height: 24px;
-}
-
-.live-chat-btn:hover { animation-play-state: paused; }
-
-@keyframes bounceChat {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-    40% { transform: translateY(-10px); }
-    60% { transform: translateY(-5px); }
-}
-
-/* MOBIL MOSLASHUV */
-@media (max-width: 600px) {
-    .live-chat-btn span { display: none; }
-    .live-chat-btn { padding: 15px; border-radius: 50%; min-width: unset; }
-    .audio-track { flex-direction: column; align-items: center; text-align: center; }
-    audio { width: 100%; min-width: unset; }
+.btn:hover{
+    opacity:0.8;
 }
