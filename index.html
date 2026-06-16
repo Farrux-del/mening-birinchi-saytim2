@@ -23,11 +23,10 @@
         </p>
     </div>
 
-    <!-- 🎬 PORTFOLIO VIDEOLAR -->
+    <!-- 🎬 VIDEOLAR -->
     <div class="card">
         <h2>🎬 Mening ishlarim</h2>
 
-        <!-- ORIGINAL GITHUB NOMLARI BILAN -->
         <video controls width="100%">
             <source src="frog in laptop.mp4" type="video/mp4">
         </video>
@@ -46,19 +45,16 @@
 
     </div>
 
-    <!-- 📩 BUYURTMA -->
+    <!-- 📩 BUYURTMA (GMAIL) -->
     <div class="card">
-        <h2>Buyurtma berish</h2>
+        <h2>📩 Buyurtma berish</h2>
 
-        <input type="text" placeholder="Ismingiz">
+        <input id="name" type="text" placeholder="Ismingiz">
+        <textarea id="desc" placeholder="Qanday edit kerakligini yozing"></textarea>
 
-        <textarea placeholder="Qanday edit kerakligini yozing"></textarea>
-
-        <a href="https://t.me/lhuwsfr?text=Salom%20men%20video%20edit%20buyurtma%20bermoqchiman" 
-           target="_blank" 
-           class="btn">
-            🚀 Telegram orqali yuborish
-        </a>
+        <button class="btn" onclick="sendEmail()">
+            🚀 Gmailga yuborish
+        </button>
     </div>
 
     <!-- ⭐ NIMA UCHUN MEN -->
@@ -74,6 +70,29 @@
     </div>
 
 </div>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+(function(){
+    emailjs.init("YOUR_PUBLIC_KEY"); 
+})();
+
+function sendEmail() {
+    let name = document.getElementById("name").value;
+    let desc = document.getElementById("desc").value;
+
+    emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+        from_name: name,
+        message: desc
+    }).then(function() {
+        alert("✔ Buyurtma Gmailga yuborildi!");
+    }, function(error) {
+        alert("❌ Xatolik chiqdi!");
+    });
+}
+</script>
 
 </body>
 </html>
