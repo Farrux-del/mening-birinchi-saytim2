@@ -81,3 +81,7 @@ textarea{
         font-size: 14px;
     }
 }
+video{
+    margin-top:10px;
+    border-radius:10px;
+}
