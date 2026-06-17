@@ -10,11 +10,17 @@
 
 <div class="container">
 
-    <h1>🎬 Farrux-Edits</h1>
+    <!-- LOGO -->
+    <div class="logo-box">
+        <img src="logo.png" alt="Farrux Edits Logo" class="logo">
+        <h1>Farrux-Edits</h1>
+    </div>
+
     <p class="subtitle">
         Roblox, Minecraft va Meme videolar uchun montaj xizmati
     </p>
 
+    <!-- MEN NIMA QILAMAN -->
     <div class="card">
         <h2>Men nima qilaman?</h2>
         <p>
@@ -23,7 +29,7 @@
         </p>
     </div>
 
-    <!-- 🎬 VIDEOLAR -->
+    <!-- VIDEOLAR -->
     <div class="card">
         <h2>🎬 Mening ishlarim</h2>
 
@@ -42,33 +48,33 @@
         <video controls width="100%">
             <source src="0612.mp4" type="video/mp4">
         </video>
-
     </div>
 
-    <!-- 📩 BUYURTMA -->
+    <!-- BUYURTMA -->
     <div class="card">
         <h2>📩 Buyurtma berish</h2>
 
-        <input id="name" type="text" placeholder="Ismingiz">
-        <textarea id="desc" placeholder="Qanday edit kerakligini yozing"></textarea>
+        <p>
+            Video edit buyurtma qilish uchun Telegram orqali yozing.
+        </p>
 
-        <button class="btn" onclick="sendMail()">
-            🚀 Gmail ochish
-        </button>
+        <a href="https://t.me/lhuwsfr" target="_blank" class="btn">
+            🚀 Telegramda yozish
+        </a>
     </div>
 
-    <!-- 📢 TELEGRAM -->
+    <!-- TELEGRAM -->
     <div class="card">
         <h2>📢 Telegram kanal</h2>
 
         <a href="https://t.me/lhuwsfr" target="_blank" class="btn">
-            🚀 Telegram ga o‘tish
+            🚀 Telegramga o‘tish
         </a>
     </div>
 
-    <!-- ⭐ NIMA UCHUN MEN -->
+    <!-- NIMA UCHUN MEN -->
     <div class="card">
-        <h2>Nega meni tanlash kerak?</h2>
+        <h2>⭐ Nega meni tanlash kerak?</h2>
 
         <ul>
             <li>⚡ Tez ishlov berish</li>
@@ -79,26 +85,6 @@
     </div>
 
 </div>
-
-<script>
-function sendMail() {
-    let name = document.getElementById("name").value;
-    let desc = document.getElementById("desc").value;
-
-    if(name === "" || desc === "") {
-        alert("Iltimos hamma maydonni to‘ldiring!");
-        return;
-    }
-
-    let subject = "Video edit buyurtma";
-    let body =
-        "Ism: " + name + "%0D%0A" +
-        "Tavsif: " + desc;
-
-    window.location.href =
-        "mailto:qobilovfarruxbek6@gmail.com?subject=" + subject + "&body=" + body;
-}
-</script>
 
 </body>
 </html>
