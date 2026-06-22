@@ -4,21 +4,17 @@ function openTool(tool){
     if(tool === "qr"){
         box.innerHTML = `
             <h3>📱 QR Code Generator</h3>
-
             <input id="qrText" placeholder="URL yozing">
-
             <button onclick="makeQR()">QR yaratish</button>
-
             <p id="error" style="color:red"></p>
-
-            <div id="qrResult" style="margin-top:10px;"></div>
+            <div id="qrResult"></div>
         `;
     }
 
     else if(tool === "text"){
         box.innerHTML = `
             <h3>📝 Text Counter</h3>
-            <textarea oninput="countText(this.value)" placeholder="Yozing..."></textarea>
+            <textarea oninput="countText(this.value)"></textarea>
             <p id="count">0 harf</p>
         `;
     }
@@ -27,7 +23,7 @@ function openTool(tool){
         let num = Math.floor(Math.random()*100);
         box.innerHTML = `
             <h3>🎲 Random Number</h3>
-            <p style="font-size:28px;color:#00d4ff">${num}</p>
+            <p style="font-size:30px;color:#00d4ff">${num}</p>
         `;
     }
 
@@ -55,12 +51,12 @@ function openTool(tool){
     }
 }
 
-/* TEXT */
+/* TEXT COUNTER */
 function countText(text){
     document.getElementById("count").innerText = text.length + " ta harf";
 }
 
-/* QR */
+/* QR CODE */
 function makeQR(){
     let text = document.getElementById("qrText").value;
     let error = document.getElementById("error");
@@ -85,12 +81,7 @@ function sendMessage(){
     if(!msg) return;
 
     chatBox.innerHTML += `<p><b>Sen:</b> ${msg}</p>`;
-
-    let reply = aiReply(msg);
-
-    chatBox.innerHTML += `<p><b>AI:</b> ${reply}</p>`;
-
-    saveChat(msg, reply);
+    chatBox.innerHTML += `<p><b>AI:</b> ${aiReply(msg)}</p>`;
 
     input.value = "";
     chatBox.scrollTop = chatBox.scrollHeight;
@@ -108,13 +99,6 @@ function aiReply(text){
     return "Buni tushunmadim 🤔";
 }
 
-/* 💾 CHAT HISTORY */
-function saveChat(q,a){
-    let data = JSON.parse(localStorage.getItem("chat")) || [];
-    data.push({q,a});
-    localStorage.setItem("chat", JSON.stringify(data));
-}
-
 /* 🎮 GAME */
 function checkGuess(secret){
     let guess = document.getElementById("guess").value;
@@ -122,6 +106,6 @@ function checkGuess(secret){
     if(parseInt(guess) === secret){
         alert("🎉 To‘g‘ri topding!");
     } else {
-        alert("❌ Xato! To‘g‘ri javob: " + secret);
+        alert("❌ Xato! To‘g‘ri son: " + secret);
     }
 }
