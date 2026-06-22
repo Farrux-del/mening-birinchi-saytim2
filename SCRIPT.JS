@@ -3,9 +3,14 @@ function openTool(tool){
 
     if(tool === "qr"){
         box.innerHTML = `
-            <h3>📱 QR Generator</h3>
-            <input id="qrText" placeholder="Matn yoz">
-            <button onclick="makeQR()">Generate QR</button>
+            <h3>📱 QR Code Generator</h3>
+
+            <input id="qrText" placeholder="URL yozing (https://example.com)">
+
+            <button onclick="makeQR()">QR yaratish</button>
+
+            <p id="error" style="color:red"></p>
+
             <div id="qrResult" style="margin-top:10px;"></div>
         `;
     }
@@ -33,12 +38,15 @@ function countText(text){
 
 function makeQR(){
     let text = document.getElementById("qrText").value;
+    let error = document.getElementById("error");
 
     if(!text){
-        alert("Matn yoz!");
+        error.innerText = "❌ URL yozing!";
         return;
     }
 
+    error.innerText = "";
+
     document.getElementById("qrResult").innerHTML =
-        `<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${text}">`;
+        `<img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(text)}">`;
 }
