@@ -33,20 +33,6 @@ h1{
     transform:scale(1.02);
 }
 
-input,
-textarea{
-    width:100%;
-    padding:12px;
-    margin-top:10px;
-    border:none;
-    border-radius:10px;
-    outline:none;
-}
-
-textarea{
-    height:120px;
-}
-
 .btn{
     display:block;
     margin-top:15px;
@@ -59,55 +45,6 @@ textarea{
     font-weight:bold;
 }
 
-.btn:hover{
-    opacity:0.8;
-}
-
-@media (max-width: 600px) {
-    .container { padding: 10px; }
-    h1 { font-size: 22px; }
-    .card { padding: 15px; }
-    .btn { font-size: 14px; }
-}
-
-video{
-    margin-top:10px;
-    border-radius:10px;
-}
-
-.logo-box{
-    text-align:center;
-}
-
-.logo{
-    width:180px;
-    max-width:100%;
-    display:block;
-    margin:0 auto 15px;
-    border-radius:20px;
-    box-shadow:0 0 25px rgba(0,212,255,0.5);
-}
-
-.service-box{
-    background:#0f172a;
-    padding:15px;
-    margin-top:10px;
-    border-radius:12px;
-    border:1px solid #00d4ff33;
-    transition:0.3s;
-}
-
-.service-box:hover{
-    transform:scale(1.03);
-    border-color:#00d4ff;
-}
-
-.service-box h3{
-    margin:0 0 8px 0;
-    color:#00d4ff;
-}
-
-/* 🛠 TOOLS */
 .tools-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
@@ -123,10 +60,12 @@ video{
     color:black;
     font-weight:bold;
     cursor:pointer;
+    transition:0.3s;
 }
 
 .tools-grid button:hover{
-    opacity:0.8;
+    transform:scale(1.05);
+    box-shadow:0 0 10px #00d4ff;
 }
 
 #toolBox{
